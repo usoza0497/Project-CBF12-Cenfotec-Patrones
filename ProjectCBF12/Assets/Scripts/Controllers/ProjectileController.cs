@@ -1,20 +1,36 @@
-using ReflectionFactory;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
+    //SerializedField variables
+    [SerializeField] float projectileVelocity = 20f;
 
-    private Rigidbody2D myRB;
-    public float speed;
+    //Private variables
+    private Rigidbody2D myRigidbody;
+    private BoxCollider2D myBodyCollider;
+    private GameObject player;
+    private float bulletSpeed;
 
-    void Start()
+    // Start is called before the first frame update
+    public void Start()
     {
-        myRB = GetComponent<Rigidbody2D>();
-
+        myRigidbody = GetComponent<Rigidbody2D>();
+        myBodyCollider = GetComponent<BoxCollider2D>();
+        player = GameObject.FindWithTag("Player");
+        bulletSpeed = player.transform.localScale.x * projectileVelocity;
     }
-    private void Update()
+
+    // Update is called once per frame
+    public void Update()
     {
-        myRB.velocity = new Vector2(+speed, 0);
-        Destroy(gameObject, 5f);
+        myRigidbody.velocity = new Vector2(bulletSpeed, 0f);
+    }
+
+    //OnCollisionEnter2D is called when the bullet collides with something
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(gameObject);
     }
 }

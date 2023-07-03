@@ -12,12 +12,12 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Background
+  - Bouncing
+  - Hazards
+  - Bullets
+  - Interactables
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Platforms
     uniqueID: 252378481
+    locked: 0
+  - name: Hazards
+    uniqueID: 3466632707
     locked: 0
   - name: Decorations
     uniqueID: 3813429655
