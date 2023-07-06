@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Level Label
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,15 @@ TagManager:
   - name: Decorations
     uniqueID: 3813429655
     locked: 0
+  - name: Road
+    uniqueID: 1072908103
+    locked: 0
+  - name: Nature
+    uniqueID: 271033473
+    locked: 0
   - name: Player
     uniqueID: 3764366973
+    locked: 0
+  - name: UI
+    uniqueID: 4121867193
     locked: 0
