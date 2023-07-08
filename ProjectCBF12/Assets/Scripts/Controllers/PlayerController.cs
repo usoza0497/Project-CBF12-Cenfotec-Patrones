@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using LevelLoad;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +21,9 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D myBodyCollider;
     private BoxCollider2D myFeetCollider;
     private bool isAlive = true;   
-    private LevelLoader levelLoader = new LevelLoader();
+
+    //Public variables
+    public AudioClip jumpSound;
     
     // Start is called before the first frame update
     public void Start()
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
         Walk();
         FlipSprite();
         Die();
+        Bouncing();
     }
 
     //OnMove is called when the player moves
@@ -58,9 +60,10 @@ public class PlayerController : MonoBehaviour
 
         if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing"))) { return; }
         
-        if (value.isPressed)
+        if (value.isPressed && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")))
         {
-            myRigidbody.velocity += new Vector2(0f, jumpSpeed);;
+            myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+            AudioManager.instance.PlaySound(jumpSound);
         }
     }
 
@@ -104,9 +107,15 @@ public class PlayerController : MonoBehaviour
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
 
-            StartCoroutine(levelLoader.LoadLevel(SceneManager.GetActiveScene().name));
+            LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
         }
     }
 
-    
+    public void Bouncing()
+    {
+        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")))
+        {
+            AudioManager.instance.PlaySound(jumpSound);
+        }
+    }
 }

@@ -3,16 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace LevelLoad
+public class LevelLoader : MonoBehaviour
 {
-    public class LevelLoader {
-        private float levelLoadDelay = 1.5f;
+    public static LevelLoader instance { get; private set; }
+    private string levelName;
+    public Animator animator;
 
-        public IEnumerator LoadLevel(string plevelName)
+    void Awake()
+    {
+        if (instance == null)
         {
-            yield return new WaitForSeconds(levelLoadDelay);
-            SceneManager.LoadScene(plevelName);
-
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else
+        {
+            Destroy(gameObject);
+            Debug.LogWarning("Duplicate LevelLoader destroyed.");
         }
     }
+
+    public void FadeToLevel(string plevelName)
+    {
+        levelName = plevelName;
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelName);
+        animator.SetTrigger("FadeIn");
+    }
 }
+
