@@ -11,22 +11,26 @@ public class PyronitiaController : MonoBehaviour
     public float tiempoParaCambiar = 4f;
     public Rigidbody2D rbd;
     public float fuerzaSalto = 4f;
-    public Transform objetivo;
-    public bool debePerseguirObjetivo;
-    public float distanciaObjetivo;
-    public float distanciaObjetivoAbsoluta;
     // Start is called before the first frame update
     void Start()
     {
         contadorT = tiempoParaCambiar;
-        InvokeRepeating("Saltar", 2f, 5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanciaObjetivo = objetivo.position.x - transform.position.x;
-        distanciaObjetivoAbsoluta = Mathf.Abs(distanciaObjetivo);
+        if (esIzquierda == true)
+        {
+            transform.position += Vector3.left * speed * Time.deltaTime;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (esIzquierda == false)
+        {
+            transform.position += Vector3.right * speed * Time.deltaTime;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
         contadorT -= Time.deltaTime;
 
@@ -37,30 +41,9 @@ public class PyronitiaController : MonoBehaviour
 
         }
 
-        if(debePerseguirObjetivo == true) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.position = Vector2.MoveTowards(transform.position, objetivo.position, speed * Time.deltaTime);
+            rbd.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         }
-
-        if(distanciaObjetivo > 0) 
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        if (distanciaObjetivo < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        if (distanciaObjetivoAbsoluta < 6)
-        {
-            debePerseguirObjetivo = true;
-        } else
-        {
-            debePerseguirObjetivo = false;
-        }
-    }
-
-    public void Saltar()
-    {
-        rbd.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
     }
 }
