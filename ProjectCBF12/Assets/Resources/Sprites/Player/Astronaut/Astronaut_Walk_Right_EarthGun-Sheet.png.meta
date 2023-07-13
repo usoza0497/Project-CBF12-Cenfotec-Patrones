@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bdd9b53836587b04b94cd04f114c0f4d
+guid: 8c04ca7c2b31f854fb2cd592b562ff5f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -117,12 +117,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: xeno-grunt-range-attack_0
+      name: Astronaut_Walk_Right_EarthGun-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
+        width: 27
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,19 +131,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1e884f32c6bea94fa0411a15f600890
-      internalID: -1639530362
+      spriteID: 9d5977706b309504faa5be9f0c14b35d
+      internalID: -1669278312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeno-grunt-range-attack_1
+      name: Astronaut_Walk_Right_EarthGun-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77bb363ac4f8fa94d8472a7ef6a4117d
+      internalID: 1409249393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_Walk_Right_EarthGun-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
+        width: 27
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,19 +173,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dbae8cbf441bed40be17cca8b57f8fb
-      internalID: -14390171
+      spriteID: c86ebabb097e15747874f1dc5a53623a
+      internalID: -1822825478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeno-grunt-range-attack_2
+      name: Astronaut_Walk_Right_EarthGun-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7480af70f3137664caef3f82e02f8aa4
+      internalID: -1715919850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_Walk_Right_EarthGun-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
+        width: 27
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -173,19 +215,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ff3c08fddf2ea42b9d34581ce9eb95
-      internalID: -155032367
+      spriteID: f1567bbb5fbe96a409cdbe65a54e0522
+      internalID: -2015852932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeno-grunt-range-attack_3
+      name: Astronaut_Walk_Right_EarthGun-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 27
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a33399ddb0ca0a4c863a8bf4843ecd8
+      internalID: 1161688221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut_Walk_Right_EarthGun-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
+        width: 27
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -194,19 +257,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c681d211b6578744f891fcaf661dd26b
-      internalID: 412791474
+      spriteID: 2584e522144539b4baa280003e9c0ce7
+      internalID: -294941033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xeno-grunt-range-attack_4
+      name: Astronaut_Walk_Right_EarthGun-Sheet_7
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 0
-        width: 64
+        width: 27
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -215,50 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad244a1d3134d3f48908dd9941d01bbc
-      internalID: -1006503547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: xeno-grunt-range-attack_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f64bc55d19e746e4895a9e8a4394ba05
-      internalID: 1970285662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: xeno-grunt-range-attack_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d630e39cddb0db498790128c9eb26ae
-      internalID: 1110382561
+      spriteID: 1008ebcaedc7fb7498e5278810bd9757
+      internalID: 935551015
       vertices: []
       indices: 
       edges: []
@@ -274,13 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      xeno-grunt-range-attack_0: -1639530362
-      xeno-grunt-range-attack_1: -14390171
-      xeno-grunt-range-attack_2: -155032367
-      xeno-grunt-range-attack_3: 412791474
-      xeno-grunt-range-attack_4: -1006503547
-      xeno-grunt-range-attack_5: 1970285662
-      xeno-grunt-range-attack_6: 1110382561
+      Astronaut_Walk_Right_EarthGun-Sheet_0: -1669278312
+      Astronaut_Walk_Right_EarthGun-Sheet_1: 1409249393
+      Astronaut_Walk_Right_EarthGun-Sheet_2: -1822825478
+      Astronaut_Walk_Right_EarthGun-Sheet_3: -1715919850
+      Astronaut_Walk_Right_EarthGun-Sheet_4: -2015852932
+      Astronaut_Walk_Right_EarthGun-Sheet_5: 1161688221
+      Astronaut_Walk_Right_EarthGun-Sheet_6: -294941033
+      Astronaut_Walk_Right_EarthGun-Sheet_7: 935551015
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
