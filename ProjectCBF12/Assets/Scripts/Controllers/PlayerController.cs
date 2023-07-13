@@ -125,8 +125,9 @@ public class PlayerController : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
+
             GameManager.instance.ResetGame();
-            LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
+            LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
         }
     }
 

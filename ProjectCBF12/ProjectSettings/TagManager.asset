@@ -6,8 +6,6 @@ TagManager:
   tags:
   - Level Label
   - Hazards
-  - Enemy
-  - Bullet
   layers:
   - Default
   - TransparentFX
