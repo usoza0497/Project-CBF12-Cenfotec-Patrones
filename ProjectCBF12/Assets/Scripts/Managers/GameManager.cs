@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     //Private variables
-    private MementoManager mementoManager = new MementoManager();
-    private int globalCoinScore = 0;
-    private string currentLevel = "Level 1-1";
-    private int levelCoinScore = 0;
-    private int totalHealth = 6;
+    private int totalCoinScore = 0;
+    private int totalHealth = 3;
 
     //Public variables
     public HUD hud;
@@ -74,7 +70,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Level Map")
+        {
+            hud.gameObject.SetActive(false);
+        } else
+        { 
+            hud.gameObject.SetActive(true);
+        }
     }
     
     public void AddCoinScore(int coinScore)
@@ -88,33 +91,18 @@ public class GameManager : MonoBehaviour
         if (totalHealth <= 0) { return; }
 
         totalHealth--;
-        if (totalHealth % 2 == 0)
-        {
-            hud.EmptyHeart(totalHealth/2);
-        } else
-        {
-            hud.HalfHeart(totalHealth/2);
-        }
+        hud.EmptyHeart(totalHealth);
     }
 
     public void GainHealth()
     {
-        if (totalHealth >= 6) { return; }
-
-        if (totalHealth % 2 == 0)
-        {
-            hud.HalfHeart(totalHealth/2);
-        } else
-        {
-            hud.FullHeart(totalHealth/2);
-        }
-
+        hud.FullHeart(totalHealth);
         totalHealth++;
     }
 
     public void ResetHealth()
     {
-        totalHealth = 6;
+        totalHealth = 3;
         hud.ResetHearts();
     }
 
@@ -128,11 +116,5 @@ public class GameManager : MonoBehaviour
     {
         ResetHealth();
         ResetCoinScore();
-        UpdateBossHealthBar(1);
-    }
-
-    public void UpdateBossHealthBar(float health)
-    {
-        hud.UpdateBossHealthBar(health);
     }
 }

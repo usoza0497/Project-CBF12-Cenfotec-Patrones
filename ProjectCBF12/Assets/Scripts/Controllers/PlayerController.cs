@@ -113,12 +113,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if (other.gameObject.CompareTag("Hazards") || other.gameObject.CompareTag("Enemy"))
-        {
+        if (other.gameObject.CompareTag("Hazards")) {
             myRigidbody.velocity = deathKick;
             GameManager.instance.LoseHealth();
-            AudioManager.instance.PlaySound(hurtSound);
-            myAnimator.SetTrigger("Hurt");
         }
     }
 
@@ -131,7 +128,7 @@ public class PlayerController : MonoBehaviour
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
             GameManager.instance.ResetGame();
-            LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
+            LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
         }
     }
 
