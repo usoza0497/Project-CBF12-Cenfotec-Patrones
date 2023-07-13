@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     public int LevelCoinScore
     {
-<<<<<<< HEAD
         get { return levelCoinScore; }
         set { levelCoinScore = value; }
     }
@@ -45,9 +44,7 @@ public class GameManager : MonoBehaviour
     {
         get { return mementoManager; }
         set { mementoManager = value; }
-=======
         get { return totalCoinScore; }
->>>>>>> 770d6ea (Added features to GameManager and HUD)
     }
 
     //Methods
