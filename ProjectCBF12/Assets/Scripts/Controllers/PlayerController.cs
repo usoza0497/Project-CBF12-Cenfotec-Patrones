@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
-        myFeetCollider = GetComponent<BoxCollider2D>();    
+        myFeetCollider = GetComponentInChildren<BoxCollider2D>();
+        GameManager.instance.ResetGame(); 
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
         Walk();
         FlipSprite();
+        //GetHurt();
         Die();
         Bouncing();
     }
@@ -57,9 +59,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing"))) { return; }
+        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) { return; }
         
-        if (value.isPressed && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")))
+        if (value.isPressed)
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
             AudioManager.instance.PlaySound(jumpSound);
@@ -98,14 +100,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if (!isAlive) { return; }
+
+        if (other.gameObject.CompareTag("Hazards")) {
+            myRigidbody.velocity = deathKick;
+            GameManager.instance.LoseHealth();
+        }
+    }
+
     //Die kills the player when they touch a hazard
-    public void Die(){
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) || myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
+    public void Die()
+    {
+        if (GameManager.instance.GetTotalHealth == 0)
         {
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
 
+            GameManager.instance.ResetGame();
             LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
         }
     }
