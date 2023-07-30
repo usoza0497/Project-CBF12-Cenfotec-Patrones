@@ -9,9 +9,9 @@ public class Coin : MonoBehaviour
 
        public void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
-            Destroy(this.gameObject);
             GameManager.instance.AddCoinScore(coinValue);
             AudioManager.instance.PlaySound(coinSound);
+            Destroy(this.gameObject);
         }
     }
 }

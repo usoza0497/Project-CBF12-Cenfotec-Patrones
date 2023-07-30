@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Level Label
-  - Hazards
   layers:
   - Default
   - TransparentFX
