@@ -3,35 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoader : MonoBehaviour
+namespace Assets.Scripts.UI.Level_Loading
 {
-    public static LevelLoader instance { get; private set; }
-    private string levelName;
-    public Animator animator;
-
-    void Awake()
+    public class LevelLoader : MonoBehaviour
     {
-        if (instance == null)
+        private static string levelName;
+        public static Animator animator;
+
+        public void Start()
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        } else
-        {
-            Destroy(gameObject);
-            Debug.LogWarning("Duplicate LevelLoader destroyed.");
+            animator = GetComponent<Animator>();
         }
-    }
 
-    public void FadeToLevel(string plevelName)
-    {
-        levelName = plevelName;
-        animator.SetTrigger("FadeOut");
-    }
+        public static void FadeToLevel(string plevelName)
+        {
+            levelName = plevelName;
+            animator.SetTrigger("FadeOut");
+        }
 
-    public void OnFadeComplete()
-    {
-        SceneManager.LoadScene(levelName);
-        animator.SetTrigger("FadeIn");
+        public void OnFadeComplete()
+        {
+            SceneManager.LoadScene(levelName);
+            animator.SetTrigger("FadeIn");
+        }
     }
 }
 

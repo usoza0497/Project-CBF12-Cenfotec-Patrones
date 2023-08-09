@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.UI.Level_Loading;
 
     public class FinishController : MonoBehaviour
     {
+        public string levelName;
         public void OnTriggerEnter2D(Collider2D other)
         {
-            string levelName = "Level Map";
             if (other.gameObject.tag == "Player")
             {
-                LevelLoader.instance.FadeToLevel(levelName);
+                LevelLoader.FadeToLevel(levelName);
             }
         }
     }
