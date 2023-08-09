@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     //Public variables
     public AudioClip jumpSound;
     
+
     // Start is called before the first frame update
     public void Start()
     {   
@@ -128,6 +129,13 @@ public class PlayerController : MonoBehaviour
             GameManager.instance.ResetGame();
             LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
         }
+    }
+    public void playerDead(){
+        isAlive = false;
+        myAnimator.SetTrigger("Dying");
+        myRigidbody.velocity = deathKick;
+        //LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Bouncing()
