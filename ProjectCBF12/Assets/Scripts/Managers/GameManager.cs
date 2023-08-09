@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     //Private variables
     private int totalCoinScore = 0;
-    private int totalHealth = 3;
+    private int totalHealth = 6;
 
     //Public variables
     public HUD hud;
@@ -71,18 +72,33 @@ public class GameManager : MonoBehaviour
         if (totalHealth <= 0) { return; }
 
         totalHealth--;
-        hud.EmptyHeart(totalHealth);
+        if (totalHealth % 2 == 0)
+        {
+            hud.EmptyHeart(totalHealth/2);
+        } else
+        {
+            hud.HalfHeart(totalHealth/2);
+        }
     }
 
     public void GainHealth()
     {
-        hud.FullHeart(totalHealth);
+        if (totalHealth >= 6) { return; }
+
+        if (totalHealth % 2 == 0)
+        {
+            hud.HalfHeart(totalHealth/2);
+        } else
+        {
+            hud.FullHeart(totalHealth/2);
+        }
+
         totalHealth++;
     }
 
     public void ResetHealth()
     {
-        totalHealth = 3;
+        totalHealth = 6;
         hud.ResetHearts();
     }
 
