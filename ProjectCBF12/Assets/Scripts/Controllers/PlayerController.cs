@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             myRigidbody.velocity = deathKick;
 
             GameManager.instance.ResetGame();
-            LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
+            LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
         }
     }
 
