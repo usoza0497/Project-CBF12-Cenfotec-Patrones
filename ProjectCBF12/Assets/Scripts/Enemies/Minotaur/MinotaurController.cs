@@ -14,10 +14,6 @@ public class MinotaurController : MonoBehaviour
 
     public Slider healthBar;
     public float attackRadio;
-    public AudioClip breathSound;
-    public AudioClip attackSound;
-    public AudioClip deathSound;
-
 
     private void Start()
     {
