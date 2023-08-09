@@ -25,13 +25,14 @@ public class PlayerController : MonoBehaviour
     //Public variables
     public AudioClip jumpSound;
     
+
     // Start is called before the first frame update
     public void Start()
     {   
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
-        myFeetCollider = GetComponent<BoxCollider2D>();    
+        myFeetCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -103,12 +104,15 @@ public class PlayerController : MonoBehaviour
     public void Die(){
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")) || myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
         {
-            isAlive = false;
-            myAnimator.SetTrigger("Dying");
-            myRigidbody.velocity = deathKick;
-
-            LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
+            playerDead();
         }
+    }
+    public void playerDead(){
+        isAlive = false;
+        myAnimator.SetTrigger("Dying");
+        myRigidbody.velocity = deathKick;
+        //LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Bouncing()
