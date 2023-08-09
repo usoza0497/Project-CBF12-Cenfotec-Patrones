@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Level Label
   - Hazards
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -66,4 +68,7 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 2734333253
+    locked: 0
+  - name: UI
+    uniqueID: 4121867193
     locked: 0
