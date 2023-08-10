@@ -10,7 +10,7 @@ public class MinotaurController : MonoBehaviour
     private Transform player;
     private bool isFlipped = false;
     private bool isDeathTriggered = false;
-    private Transform attackController;
+    public Transform attackController;
 
     public Slider healthBar;
     public float attackRadio;
@@ -23,14 +23,13 @@ public class MinotaurController : MonoBehaviour
         boss.SetName();
         boss.SetMeleeAttacks();
         boss.SetRangeAttacks();
-        attackController = GetComponentInChildren<Transform>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         FlipSprite();
-        UpdateHealthBar();
+        GameManager.instance.UpdateBossHealthBar(boss.BossHealth / 100);
         Die();
     }
 
@@ -59,14 +58,28 @@ public class MinotaurController : MonoBehaviour
         }
     }
 
-    private void UpdateHealthBar() {
-        healthBar.value = boss.BossHealth / 100;
-    }
-
     private void Die() {
         if (!boss.IsAlive() && isDeathTriggered == false) {
             myAnimator.SetTrigger("Death");
             isDeathTriggered = true;
         }
+    }
+
+    public void Attack() {
+        if (!boss.IsAlive()) return;
+
+        Collider2D[] objects = Physics2D.OverlapCircleAll(attackController.position, attackRadio);
+
+        foreach (Collider2D collision in objects) {
+            if (collision.gameObject.CompareTag("Player")) {
+                GameManager.instance.LoseHealth();
+                player.GetComponent<PlayerController>().GetHurt();
+            }
+        }
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackController.position, attackRadio);
     }
 }
