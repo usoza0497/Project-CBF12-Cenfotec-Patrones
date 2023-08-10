@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.UI.Level_Loading;
  
     public class LevelSelectedLoad : MonoBehaviour
     {
@@ -12,7 +13,7 @@ using UnityEngine.SceneManagement;
             if (other.gameObject.tag == "Player")
             {
                 Debug.Log(levelName);
-                LevelLoader.instance.FadeToLevel(levelName);
+                LevelLoader.FadeToLevel(levelName);
             }
         }
     }

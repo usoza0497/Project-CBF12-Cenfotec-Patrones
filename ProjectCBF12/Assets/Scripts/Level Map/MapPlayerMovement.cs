@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.UI.Level_Loading;
 
 
 public class MapPlayerMovement : MonoBehaviour
@@ -63,7 +64,7 @@ public class MapPlayerMovement : MonoBehaviour
     public void OnEnter(InputValue value) {
         if (levelSelected != "")
         {
-            LevelLoader.instance.FadeToLevel(levelSelected);
+            LevelLoader.FadeToLevel(levelSelected);
         } 
     }
 

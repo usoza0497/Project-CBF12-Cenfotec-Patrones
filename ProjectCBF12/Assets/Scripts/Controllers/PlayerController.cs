@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.UI.Level_Loading;
 
 public class PlayerController : MonoBehaviour
 {
@@ -106,7 +107,8 @@ public class PlayerController : MonoBehaviour
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
 
-            LevelLoader.instance.FadeToLevel(SceneManager.GetActiveScene().name);
+            GameManager.instance.ResetGame();
+            LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
         }
     }
 
