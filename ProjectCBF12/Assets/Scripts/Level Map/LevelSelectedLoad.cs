@@ -12,7 +12,6 @@ using Assets.Scripts.UI.Level_Loading;
 
             if (other.gameObject.tag == "Player")
             {
-                Debug.Log(levelName);
                 LevelLoader.FadeToLevel(levelName);
             }
         }

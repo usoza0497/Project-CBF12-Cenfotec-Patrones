@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.UI.Level_Loading;
+using Assets.Scripts.UI.Menus;
 
 public class PlayerController : MonoBehaviour
 {
@@ -73,6 +74,8 @@ public class PlayerController : MonoBehaviour
     public void OnFire(InputValue value)
     {
         if (!isAlive) { return; }
+
+        if (PauseMenu.isPaused) { return; }
         
         if (value.isPressed)
         {
@@ -105,9 +108,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if (other.gameObject.CompareTag("Hazards")) {
+        if (other.gameObject.CompareTag("Hazards") || other.gameObject.CompareTag("Enemy"))
+        {
             myRigidbody.velocity = deathKick;
             GameManager.instance.LoseHealth();
+            myAnimator.SetTrigger("Hurt");
         }
     }
 
@@ -131,5 +136,12 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.instance.PlaySound(jumpSound);
         }
+    }
+
+    //GetHurt is called when the player gets hurt by an enemy or hazard
+    public void GetHurt()
+    {
+        if (!isAlive) { return; }
+        myAnimator.SetTrigger("Hurt");
     }
 }
