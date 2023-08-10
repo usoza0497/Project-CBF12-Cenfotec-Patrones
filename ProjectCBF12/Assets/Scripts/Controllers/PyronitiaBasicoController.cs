@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PyronitiaController : MonoBehaviour
+public class PyronitiaBasicoController : MonoBehaviour
 {
     public float speed;
     public bool esIzquierda = true;
@@ -44,11 +44,11 @@ public class PyronitiaController : MonoBehaviour
 
         if(distanciaObjetivo > 0) 
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(5, 5, 5);
         }
         if (distanciaObjetivo < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-5, 5, 5);
         }
         if (distanciaObjetivoAbsoluta < 6)
         {
