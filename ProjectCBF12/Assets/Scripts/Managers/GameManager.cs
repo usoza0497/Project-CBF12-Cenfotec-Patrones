@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int TotalCoinScore
     {
         get { return totalCoinScore; }
+        set { totalCoinScore = value; }
     }
 
     //Methods

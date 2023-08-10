@@ -9,13 +9,12 @@ public class HUD : MonoBehaviour
 {
     public TextMeshProUGUI coinScoreText;
     public RectTransform coinScoreObject;
-    public RectTransform healthObject;
     public GameObject[] hearts;
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Slider BossHealthBar;
-
+    
     public void Update()
     {
         ChangeHudAppearance();

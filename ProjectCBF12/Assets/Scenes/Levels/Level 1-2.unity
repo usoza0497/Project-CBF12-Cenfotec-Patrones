@@ -11493,7 +11493,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6604061304060445105, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
       propertyPath: levelName
-      value: Level 1-2_Boss
+      value: Level Map
       objectReference: {fileID: 0}
     - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
       propertyPath: m_RootOrder
