@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        ToggleHUD();
+    }
+
+    public void ToggleHUD()
+    {
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Level Map")
         {
@@ -58,7 +63,7 @@ public class GameManager : MonoBehaviour
         } else
         { 
             hud.gameObject.SetActive(true);
-        }
+        }    
     }
     
     public void AddCoinScore(int coinScore)
@@ -112,5 +117,11 @@ public class GameManager : MonoBehaviour
     {
         ResetHealth();
         ResetCoinScore();
+        UpdateBossHealthBar(1);
+    }
+
+    public void UpdateBossHealthBar(float health)
+    {
+        hud.UpdateBossHealthBar(health);
     }
 }

@@ -8,10 +8,18 @@ using UnityEngine.SceneManagement;
 public class HUD : MonoBehaviour
 {
     public TextMeshProUGUI coinScoreText;
+    public RectTransform coinScoreObject;
+    public RectTransform healthObject;
     public GameObject[] hearts;
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Sprite halfHeart;
+    public Slider BossHealthBar;
+
+    public void Update()
+    {
+        ChangeHudAppearance();
+    }
 
     public void UpdateCoinScore(int coinScore)
     {
@@ -42,6 +50,23 @@ public class HUD : MonoBehaviour
         {
             Image heartImage = heart.GetComponent<Image>();
             heartImage.sprite = fullHeart;
+        }
+    }
+
+    public void UpdateBossHealthBar(float health)
+    {
+        BossHealthBar.value = health;
+    }
+
+    public void ChangeHudAppearance() {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName.Contains("Boss")) {
+            coinScoreObject.gameObject.SetActive(false);
+            BossHealthBar.gameObject.SetActive(true);
+        } else {
+            coinScoreObject.gameObject.SetActive(true);
+            BossHealthBar.gameObject.SetActive(false);
         }
     }
 }

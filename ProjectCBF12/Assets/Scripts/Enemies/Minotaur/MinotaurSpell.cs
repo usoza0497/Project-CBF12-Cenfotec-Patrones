@@ -8,11 +8,13 @@ public class MinotaurSpell : MonoBehaviour
     [SerializeField] private Transform boxPosition;
     [SerializeField] private float attackDuration = 0.5f;
     private bool isHit = false;
+    private Transform player;
 
     private void Start()
     {
         Destroy(gameObject, attackDuration);
         isHit = false;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void Hit()
@@ -27,6 +29,7 @@ public class MinotaurSpell : MonoBehaviour
             if (collider.CompareTag("Player"))
             {
                 GameManager.instance.LoseHealth();
+                player.GetComponent<PlayerController>().GetHurt();
             }
         }
     }

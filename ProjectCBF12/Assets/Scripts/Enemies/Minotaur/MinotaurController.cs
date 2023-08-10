@@ -29,7 +29,7 @@ public class MinotaurController : MonoBehaviour
     private void Update()
     {
         FlipSprite();
-        UpdateHealthBar();
+        GameManager.instance.UpdateBossHealthBar(boss.BossHealth / 100);
         Die();
     }
 
@@ -58,10 +58,6 @@ public class MinotaurController : MonoBehaviour
         }
     }
 
-    private void UpdateHealthBar() {
-        healthBar.value = boss.BossHealth / 100;
-    }
-
     private void Die() {
         if (!boss.IsAlive() && isDeathTriggered == false) {
             myAnimator.SetTrigger("Death");
@@ -77,6 +73,7 @@ public class MinotaurController : MonoBehaviour
         foreach (Collider2D collision in objects) {
             if (collision.gameObject.CompareTag("Player")) {
                 GameManager.instance.LoseHealth();
+                player.GetComponent<PlayerController>().GetHurt();
             }
         }
     }
