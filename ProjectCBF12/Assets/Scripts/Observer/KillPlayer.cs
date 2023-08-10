@@ -1,14 +1,11 @@
-using ReflectionFactory;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 public class KillPlayer : MonoBehaviour //Es el Observador del Sujeto TimerLeft
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] public TimerLeft timer{get; private set;}
+    private GameObject player;
+    public TimerLeft timer{get; private set;}
     public void Start(){
+        player = GameObject.FindGameObjectWithTag("Player");
+        timer = FindObjectOfType<TimerLeft>();
         Awake();
     }
     private void Awake(){
@@ -19,7 +16,7 @@ public class KillPlayer : MonoBehaviour //Es el Observador del Sujeto TimerLeft
     }
     }
     private void PlayerKill(){
-       player.GetComponent<PlayerController>().playerDead();
+       player.GetComponent<PlayerController>().Die();
     }
 }
 

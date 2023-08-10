@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
@@ -9,7 +7,7 @@ public class TimerLeft : MonoBehaviour //Es el Sujeto del patron Observer
     public event Action TimeOut= delegate{};
 
 
-    public float timeLeft=360;
+    private float timeLeft=180;
     public bool TimerOn;
     
 
