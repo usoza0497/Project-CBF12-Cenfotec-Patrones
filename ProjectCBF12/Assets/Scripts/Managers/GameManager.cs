@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int GetTotalHealth
     {
         get { return totalHealth; }
+        set { totalHealth = value; }
     }
 
     public int TotalCoinScore
