@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.UI.Level_Loading;
 using Assets.Scripts.UI.Menus;
-
+using Assets.Scripts.Observer;
 public class PlayerController : MonoBehaviour
 {
     //SerializedField variables
@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
-
             GameManager.instance.ResetGame();
             LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
         }
