@@ -9,6 +9,7 @@ public class MinotaurSpell : MonoBehaviour
     [SerializeField] private float attackDuration = 0.5f;
     private bool isHit = false;
     private Transform player;
+    public AudioClip spellSound;
 
     private void Start()
     {
@@ -38,5 +39,10 @@ public class MinotaurSpell : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(boxPosition.position, boxSize);
+    }
+
+    public void PlaySpellSound()
+    {
+        AudioManager.instance.PlaySound(spellSound);
     }
 }

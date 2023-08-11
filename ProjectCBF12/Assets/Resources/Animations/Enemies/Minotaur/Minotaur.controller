@@ -35,7 +35,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Minotaur_Death
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellPrefab: {fileID: 8541435050111479061, guid: f1a7d109421bdf54baad9fe02ea51168, type: 3}
   offsetX: 1
+  stompSound: {fileID: 8300000, guid: 066c250324c39264c8dc7887ca610ab5, type: 3}
 --- !u!1102 &-1889965126921425054
 AnimatorState:
   serializedVersion: 6

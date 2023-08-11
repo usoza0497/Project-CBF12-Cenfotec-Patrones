@@ -9,6 +9,7 @@ public class HUD : MonoBehaviour
 {
     public TextMeshProUGUI coinScoreText;
     public RectTransform coinScoreObject;
+    public RectTransform healthObject;
     public GameObject[] hearts;
     public Sprite emptyHeart;
     public Sprite fullHeart;
@@ -63,7 +64,13 @@ public class HUD : MonoBehaviour
         if (sceneName.Contains("Boss")) {
             coinScoreObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(true);
-        } else {
+        } else if(sceneName.Contains("Map"))
+        {
+            coinScoreObject.gameObject.SetActive(true);
+            healthObject.gameObject.SetActive(false);
+            BossHealthBar.gameObject.SetActive(false);
+        } else
+        {
             coinScoreObject.gameObject.SetActive(true);
             BossHealthBar.gameObject.SetActive(false);
         }

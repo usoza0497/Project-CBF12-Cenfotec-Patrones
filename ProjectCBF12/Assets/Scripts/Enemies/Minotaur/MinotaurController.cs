@@ -14,6 +14,10 @@ public class MinotaurController : MonoBehaviour
 
     public Slider healthBar;
     public float attackRadio;
+    public AudioClip breathSound;
+    public AudioClip attackSound;
+    public AudioClip deathSound;
+
 
     private void Start()
     {
@@ -81,5 +85,17 @@ public class MinotaurController : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackController.position, attackRadio);
+    }
+
+    public void PlayBreathSound() {
+        AudioManager.instance.PlaySound(breathSound);
+    }
+
+    public void PlayAttackSound() {
+        AudioManager.instance.PlaySound(attackSound);
+    }
+
+    public void PlayDeathSound() {
+        AudioManager.instance.PlaySound(deathSound);
     }
 }
