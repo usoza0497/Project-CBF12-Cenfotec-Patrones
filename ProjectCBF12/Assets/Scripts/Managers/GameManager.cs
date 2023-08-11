@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,6 +61,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    internal void UpdateBossHealthBar(float v)
+    {
+        throw new NotImplementedException();
     }
 
     void Start()
