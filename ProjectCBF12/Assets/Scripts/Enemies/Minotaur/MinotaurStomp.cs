@@ -9,12 +9,14 @@ public class MinotaurStomp : StateMachineBehaviour
     private MinotaurController minotaurController;
     private Transform player;
     private float positionY = -8.576f;
+    public AudioClip stompSound;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         minotaurController = animator.GetComponent<MinotaurController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        AudioManager.instance.PlaySound(stompSound);
         Vector2 position1 = new Vector2(player.position.x, positionY);
         Vector2 position2 = new Vector2(player.position.x + offsetX, positionY);
         Vector2 position3 = new Vector2(player.position.x - offsetX, positionY);
