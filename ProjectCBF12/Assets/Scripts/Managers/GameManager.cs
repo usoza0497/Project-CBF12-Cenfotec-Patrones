@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             Debug.LogWarning("Duplicate GameManager destroyed.");
         }
+    }
+
+    internal void UpdateBossHealthBar(float v)
+    {
+        throw new NotImplementedException();
     }
 
     void Start()

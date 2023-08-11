@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.UI.Level_Loading;
+using Assets.Scripts.UI.Menus;
+using System;
+
 public class PlayerController : MonoBehaviour
 {
     //SerializedField variables
@@ -19,12 +22,12 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private CapsuleCollider2D myBodyCollider;
     private BoxCollider2D myFeetCollider;
-    private bool isAlive = true;   
+    private bool isAlive = true;  
+    
 
     //Public variables
     public AudioClip jumpSound;
-    public AudioClip hurtSound;
-    public AudioClip fireSound;
+    public event EventHandler onJumpPlattformHide;
     
     // Start is called before the first frame update
     public void Start()
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
             AudioManager.instance.PlaySound(jumpSound);
+            onJumpPlattformHide?.Invoke(this, EventArgs.Empty);
         }
     }
 
