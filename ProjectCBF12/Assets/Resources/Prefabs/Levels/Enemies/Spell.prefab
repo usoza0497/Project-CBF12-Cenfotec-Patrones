@@ -154,3 +154,4 @@ MonoBehaviour:
   boxSize: {x: 1, y: 1.8}
   boxPosition: {fileID: 8541435048917046702}
   attackDuration: 1.3
+  spellSound: {fileID: 8300000, guid: 6a735eb2ae94b1146b5aedd23ec25c9e, type: 3}

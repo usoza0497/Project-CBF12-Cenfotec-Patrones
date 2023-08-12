@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     //Public variables
     public AudioClip jumpSound;
+    public AudioClip hurtSound;
+    public AudioClip fireSound;
     
     // Start is called before the first frame update
     public void Start()
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
         if (value.isPressed)
         {
             Instantiate(bullet, firePoint.position, transform.rotation);
+            AudioManager.instance.PlaySound(fireSound);
         }    
     }
 
@@ -112,6 +115,7 @@ public class PlayerController : MonoBehaviour
         {
             myRigidbody.velocity = deathKick;
             GameManager.instance.LoseHealth();
+            AudioManager.instance.PlaySound(hurtSound);
             myAnimator.SetTrigger("Hurt");
         }
     }

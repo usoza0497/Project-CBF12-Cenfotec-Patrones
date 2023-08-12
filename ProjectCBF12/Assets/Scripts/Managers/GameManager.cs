@@ -53,19 +53,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        ToggleHUD();
-    }
-
-    public void ToggleHUD()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Level Map")
-        {
-            hud.gameObject.SetActive(false);
-        } else
-        { 
-            hud.gameObject.SetActive(true);
-        }    
+        
     }
     
     public void AddCoinScore(int coinScore)
