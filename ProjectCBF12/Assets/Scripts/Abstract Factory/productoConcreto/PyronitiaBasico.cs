@@ -1,19 +1,18 @@
+using Assets.Resources.Scripts.Enemies.Template;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Resources.Scripts.Enemies.Template;
 
-public class Minotaur : Enemy
+public class PyronitiaBasico : Enemy
 {
-    public Minotaur()
+    public PyronitiaBasico()
     {
-        this.EnemyHealth = 100f;
+        this._EnemyHealth = 150f;
     }
-
-    public void SetName() {
-        this._EnemyName = "Minotaur";
+    public void SetName()
+    {
+        this._EnemyName = "PyronitiaBasico";
     }
-
     protected override string DoMeleeAttack()
     {
         string attack = MeleeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length)];
@@ -23,8 +22,6 @@ public class Minotaur : Enemy
 
     protected override string DoRangeAttack()
     {
-        string attack = RangeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length - 1)];
-        this._Log = this._EnemyName + " used " + attack;
-        return attack;
+        return null;
     }
 }

@@ -1,42 +1,38 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinotaurController : MonoBehaviour
+public class PyronitiaBasicoController : MonoBehaviour
 {
-    private Minotaur boss;
+    private PyronitiaBasico pyronitia;
     private Animator myAnimator;
     private Transform player;
     private bool isFlipped = false;
     private bool isDeathTriggered = false;
     public Transform attackController;
-
-    public Slider healthBar;
+    
+    
     public float attackRadio;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         myAnimator = GetComponent<Animator>();
-        boss = GetComponent<Minotaur>();
-        boss.SetName();
-        boss.SetMeleeAttacks();
-        boss.SetRangeAttacks();
+        pyronitia = GetComponent<PyronitiaBasico>();
+        pyronitia.SetName();
+        pyronitia.SetMeleeAttacks();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         FlipSprite();
-        GameManager.instance.UpdateBossHealthBar(boss.EnemyHealth / 100);
         Die();
     }
 
-    //FlipSprite flips the enemy's sprite when they change direction
-    public void FlipSprite()
+    private void FlipSprite()
     {
-        if (!boss.IsAlive()) return;
+        if (!pyronitia.IsAlive()) return;
 
         if (transform.position.x > player.position.x && !isFlipped)
         {
@@ -50,35 +46,43 @@ public class MinotaurController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (!boss.IsAlive()) return;
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!pyronitia.IsAlive()) return;
 
-        if (other.gameObject.CompareTag("Bullet")) {
-            boss.ReceiveDamage(10);
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            pyronitia.ReceiveDamage(10);
         }
     }
 
-    private void Die() {
-        if (!boss.IsAlive() && isDeathTriggered == false) {
+    private void Die()
+    {
+        if (!pyronitia.IsAlive() && isDeathTriggered == false)
+        {
             myAnimator.SetTrigger("Death");
             isDeathTriggered = true;
         }
     }
 
-    public void Attack() {
-        if (!boss.IsAlive()) return;
+    public void Attack()
+    {
+        if (!pyronitia.IsAlive()) return;
 
         Collider2D[] objects = Physics2D.OverlapCircleAll(attackController.position, attackRadio);
 
-        foreach (Collider2D collision in objects) {
-            if (collision.gameObject.CompareTag("Player")) {
+        foreach (Collider2D collision in objects)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
                 GameManager.instance.LoseHealth();
                 player.GetComponent<PlayerController>().GetHurt();
             }
         }
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackController.position, attackRadio);
     }

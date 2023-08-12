@@ -1,24 +1,21 @@
+using Assets.Resources.Scripts.Enemies.Template;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Resources.Scripts.Enemies.Template;
 
-public class Minotaur : Enemy
+public class PyronitiaVolador : Enemy
 {
-    public Minotaur()
+    public PyronitiaVolador()
     {
-        this.EnemyHealth = 100f;
+        this._EnemyHealth = 150f;
     }
-
-    public void SetName() {
-        this._EnemyName = "Minotaur";
+    public void SetName()
+    {
+        this._EnemyName = "PyronitiaVolador";
     }
-
     protected override string DoMeleeAttack()
     {
-        string attack = MeleeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length)];
-        this._Log = this._EnemyName + " used " + attack;
-        return attack;
+        return null;
     }
 
     protected override string DoRangeAttack()
