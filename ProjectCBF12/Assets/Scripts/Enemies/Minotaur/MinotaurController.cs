@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Assets.Scripts.UI.Level_Loading;
 
 public class MinotaurController : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class MinotaurController : MonoBehaviour
     private Transform player;
     private bool isFlipped = false;
     private bool isDeathTriggered = false;
+    
+    public GameObject bossDoor;
     public Transform attackController;
-
     public Slider healthBar;
     public float attackRadio;
     public AudioClip breathSound;
@@ -66,6 +68,7 @@ public class MinotaurController : MonoBehaviour
         if (!boss.IsAlive() && isDeathTriggered == false) {
             myAnimator.SetTrigger("Death");
             isDeathTriggered = true;
+            bossDoor.SetActive(true);
         }
     }
 

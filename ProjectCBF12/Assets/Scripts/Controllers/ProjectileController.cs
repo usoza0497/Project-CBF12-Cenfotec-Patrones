@@ -26,6 +26,10 @@ public class ProjectileController : MonoBehaviour
     public void Update()
     {
         myRigidbody.velocity = new Vector2(bulletSpeed, 0f);
+        if(player.GetComponent<PlayerController>().IsAlive == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //OnCollisionEnter2D is called when the bullet collides with something
@@ -33,4 +37,6 @@ public class ProjectileController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 }
