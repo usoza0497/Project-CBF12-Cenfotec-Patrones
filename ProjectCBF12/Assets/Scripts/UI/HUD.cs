@@ -10,11 +10,13 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI coinScoreText;
     public RectTransform coinScoreObject;
     public RectTransform healthObject;
+    public RectTransform timerObject;
     public GameObject[] hearts;
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Slider BossHealthBar;
+
     
     public void Update()
     {
@@ -64,15 +66,20 @@ public class HUD : MonoBehaviour
         if (sceneName.Contains("Boss")) {
             coinScoreObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(true);
+            timerObject.gameObject.SetActive(false);
         } else if(sceneName.Contains("Map"))
         {
+            coinScoreText.text = GameManager.instance.GlobalCoinScore.ToString();
             coinScoreObject.gameObject.SetActive(true);
             healthObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(false);
+            timerObject.gameObject.SetActive(false);
         } else
         {
             coinScoreObject.gameObject.SetActive(true);
             BossHealthBar.gameObject.SetActive(false);
+            timerObject.gameObject.SetActive(true);
+            healthObject.gameObject.SetActive(true);
         }
     }
 }

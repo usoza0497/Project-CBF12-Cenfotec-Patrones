@@ -38,6 +38,7 @@ namespace Assets.Scripts.UI.Menus
         }
 
         public void LoadMap() {
+            GameManager.instance.MementoManager.restoreMemento();
             Time.timeScale = 1f;
             LevelLoader.FadeToLevel("Level Map");
         }

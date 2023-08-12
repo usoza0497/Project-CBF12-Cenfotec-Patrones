@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Memento;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     //Private variables
-    private int totalCoinScore = 0;
+    private MementoManager mementoManager = new MementoManager();
+    private int globalCoinScore = 0;
+    private string currentLevel = "Level 1-1";
+    private int levelCoinScore = 0;
     private int totalHealth = 6;
 
     //Public variables
@@ -23,10 +27,28 @@ public class GameManager : MonoBehaviour
         set { totalHealth = value; }
     }
 
-    public int TotalCoinScore
+    public int LevelCoinScore
     {
-        get { return totalCoinScore; }
-        set { totalCoinScore = value; }
+        get { return levelCoinScore; }
+        set { levelCoinScore = value; }
+    }
+
+    public int GlobalCoinScore
+    {
+        get { return globalCoinScore; }
+        set { globalCoinScore = value; }
+    }
+
+    public string CurrentLevel
+    {
+        get { return currentLevel; }
+        set { currentLevel = value; }
+    }
+
+    public MementoManager MementoManager
+    {
+        get { return mementoManager; }
+        set { mementoManager = value; }
     }
 
     //Methods
@@ -41,13 +63,12 @@ public class GameManager : MonoBehaviour
         } else
         {
             Destroy(gameObject);
-            Debug.LogWarning("Duplicate GameManager destroyed.");
         }
     }
 
     void Start()
     {
-        hud.UpdateCoinScore(totalCoinScore);
+        hud.UpdateCoinScore(levelCoinScore);
         hud.ResetHearts();
     }
 
@@ -58,8 +79,8 @@ public class GameManager : MonoBehaviour
     
     public void AddCoinScore(int coinScore)
     {
-        totalCoinScore += coinScore;
-        hud.UpdateCoinScore(totalCoinScore);
+        levelCoinScore += coinScore;
+        hud.UpdateCoinScore(levelCoinScore);
     }
 
     public void LoseHealth()
@@ -99,8 +120,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetCoinScore()
     {
-        totalCoinScore = 0;
-        hud.UpdateCoinScore(totalCoinScore);
+        levelCoinScore = 0;
+        hud.UpdateCoinScore(levelCoinScore);
     }
 
     public void ResetGame()
