@@ -7,19 +7,19 @@ public class PlattformsShowAndHide : MonoBehaviour
 {
     public List<GameObject> platforms;
     private PlayerController player;
+    private ICommand platformsCommand;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        player.onJumpPlattformHide += Show;
+
+        platformsCommand = new PlatformsCommand(platforms);
+        player.onJumpPlattformHide += ExecuteCommand;
     }
 
-
-    private void Show(object sender, EventArgs e)
+    private void ExecuteCommand(object sender, EventArgs e)
     {
-        foreach(GameObject block in platforms)
-        {
-            block.SetActive(!block.activeSelf);
-        }
+        platformsCommand.Execute();
     }
+
 }
