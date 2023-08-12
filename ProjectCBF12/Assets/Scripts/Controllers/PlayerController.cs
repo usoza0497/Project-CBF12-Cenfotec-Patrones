@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip hurtSound;
     public AudioClip fireSound;
+
+    public bool IsAlive { get => isAlive; set => isAlive = value; }
     
     // Start is called before the first frame update
     public void Start()
