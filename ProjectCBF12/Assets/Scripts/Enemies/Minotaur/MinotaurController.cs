@@ -60,7 +60,7 @@ public class MinotaurController : MonoBehaviour
         if (!boss.IsAlive()) return;
 
         if (other.gameObject.CompareTag("Bullet")) {
-            boss.ReceiveDamage(10);
+            boss.ReceiveDamage(5);
         }
     }
 
