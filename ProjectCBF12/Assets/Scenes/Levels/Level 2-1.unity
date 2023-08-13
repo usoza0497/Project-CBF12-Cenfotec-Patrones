@@ -693,6 +693,22 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.y
       value: 1080
       objectReference: {fileID: 0}
+    - target: {fileID: 2407037553788455461, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+      propertyPath: halfHeart
+      value: 
+      objectReference: {fileID: 645765386, guid: 2563adfb6ff998e40b016c88bb770e3a, type: 3}
+    - target: {fileID: 2407037553788455461, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+      propertyPath: timerObject
+      value: 
+      objectReference: {fileID: 1806893823}
+    - target: {fileID: 2407037553788455461, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+      propertyPath: healthObject
+      value: 
+      objectReference: {fileID: 995915960}
+    - target: {fileID: 2407037553788455461, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+      propertyPath: coinScoreObject
+      value: 
+      objectReference: {fileID: 1208690619}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
 --- !u!4 &662215613 stripped
@@ -1301,6 +1317,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed218ed0dd1108a499e7c8f62d367999, type: 3}
+--- !u!224 &995915960 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3035265574761392196, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+  m_PrefabInstance: {fileID: 653279148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1090334004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,6 +1549,11 @@ MonoBehaviour:
   - {fileID: 1867980322}
   - {fileID: 1106340537}
   - {fileID: 2027187828}
+--- !u!224 &1208690619 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2407037553695363942, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+  m_PrefabInstance: {fileID: 653279148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1286424000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2114,6 +2140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 225e583ad6e370349ade08b023be67bd, type: 3}
+--- !u!224 &1806893823 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1183583909, guid: 9d1540cbde2ce24498ddf2b4f121b933, type: 3}
+  m_PrefabInstance: {fileID: 653279148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1835874307
 GameObject:
   m_ObjectHideFlags: 0
