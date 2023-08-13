@@ -60,7 +60,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -74,9 +75,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+
     }
-    
+
     public void AddCoinScore(int coinScore)
     {
         levelCoinScore += coinScore;
@@ -90,10 +91,11 @@ public class GameManager : MonoBehaviour
         totalHealth--;
         if (totalHealth % 2 == 0)
         {
-            hud.EmptyHeart(totalHealth/2);
-        } else
+            hud.EmptyHeart(totalHealth / 2);
+        }
+        else
         {
-            hud.HalfHeart(totalHealth/2);
+            hud.HalfHeart(totalHealth / 2);
         }
     }
 
@@ -103,10 +105,11 @@ public class GameManager : MonoBehaviour
 
         if (totalHealth % 2 == 0)
         {
-            hud.HalfHeart(totalHealth/2);
-        } else
+            hud.HalfHeart(totalHealth / 2);
+        }
+        else
         {
-            hud.FullHeart(totalHealth/2);
+            hud.FullHeart(totalHealth / 2);
         }
 
         totalHealth++;
