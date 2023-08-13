@@ -11,7 +11,7 @@ public class MinotaurController : MonoBehaviour
     private Transform player;
     private bool isFlipped = false;
     private bool isDeathTriggered = false;
-    
+
     public GameObject bossDoor;
     public Transform attackController;
     public Slider healthBar;
@@ -56,7 +56,8 @@ public class MinotaurController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         if (!boss.IsAlive()) return;
 
         if (other.gameObject.CompareTag("Bullet")) {
@@ -64,41 +65,50 @@ public class MinotaurController : MonoBehaviour
         }
     }
 
-    private void Die() {
-        if (!boss.IsAlive() && isDeathTriggered == false) {
+    private void Die()
+    {
+        if (!boss.IsAlive() && isDeathTriggered == false)
+        {
             myAnimator.SetTrigger("Death");
             isDeathTriggered = true;
             bossDoor.SetActive(true);
         }
     }
 
-    public void Attack() {
+    public void Attack()
+    {
         if (!boss.IsAlive()) return;
 
         Collider2D[] objects = Physics2D.OverlapCircleAll(attackController.position, attackRadio);
 
-        foreach (Collider2D collision in objects) {
-            if (collision.gameObject.CompareTag("Player")) {
+        foreach (Collider2D collision in objects)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
                 GameManager.instance.LoseHealth();
                 player.GetComponent<PlayerController>().GetHurt();
             }
         }
     }
 
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackController.position, attackRadio);
     }
 
-    public void PlayBreathSound() {
+    public void PlayBreathSound()
+    {
         AudioManager.instance.PlaySound(breathSound);
     }
 
-    public void PlayAttackSound() {
+    public void PlayAttackSound()
+    {
         AudioManager.instance.PlaySound(attackSound);
     }
 
-    public void PlayDeathSound() {
+    public void PlayDeathSound()
+    {
         AudioManager.instance.PlaySound(deathSound);
     }
 }

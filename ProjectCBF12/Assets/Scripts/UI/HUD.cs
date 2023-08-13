@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
     public Sprite halfHeart;
     public Slider BossHealthBar;
 
-    
+
     public void Update()
     {
         ChangeHudAppearance();
@@ -60,21 +60,25 @@ public class HUD : MonoBehaviour
         BossHealthBar.value = health;
     }
 
-    public void ChangeHudAppearance() {
+    public void ChangeHudAppearance()
+    {
         string sceneName = SceneManager.GetActiveScene().name;
 
-        if (sceneName.Contains("Boss")) {
+        if (sceneName.Contains("Boss"))
+        {
             coinScoreObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(true);
             timerObject.gameObject.SetActive(false);
-        } else if(sceneName.Contains("Map"))
+        }
+        else if (sceneName.Contains("Map"))
         {
             coinScoreText.text = GameManager.instance.GlobalCoinScore.ToString();
             coinScoreObject.gameObject.SetActive(true);
             healthObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(false);
             timerObject.gameObject.SetActive(false);
-        } else
+        }
+        else
         {
             coinScoreObject.gameObject.SetActive(true);
             BossHealthBar.gameObject.SetActive(false);

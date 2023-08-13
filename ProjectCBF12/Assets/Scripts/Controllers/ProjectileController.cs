@@ -26,7 +26,7 @@ public class ProjectileController : MonoBehaviour
     public void Update()
     {
         myRigidbody.velocity = new Vector2(bulletSpeed, 0f);
-        if(player.GetComponent<PlayerController>().IsAlive == false)
+        if (player.GetComponent<PlayerController>().IsAlive == false)
         {
             Destroy(gameObject);
         }
