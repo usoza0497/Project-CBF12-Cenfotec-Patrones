@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     //Private variables
-    private int totalCoinScore = 0;
-    private int totalHealth = 3;
+    private MementoManager mementoManager = new MementoManager();
+    private int globalCoinScore = 0;
+    private string currentLevel = "Level 1-1";
+    private int levelCoinScore = 0;
+    private int totalHealth = 6;
 
     //Public variables
     public HUD hud;
@@ -21,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int GetTotalHealth
     {
         get { return totalHealth; }
+        set { totalHealth = value; }
     }
 
     public int LevelCoinScore
@@ -45,7 +49,6 @@ public class GameManager : MonoBehaviour
     {
         get { return mementoManager; }
         set { mementoManager = value; }
-        get { return totalCoinScore; }
     }
 
     //Methods
@@ -57,15 +60,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
-    }
-
-    internal void UpdateBossHealthBar(float v)
-    {
-        throw new NotImplementedException();
     }
 
     void Start()
@@ -76,16 +75,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Level Map")
-        {
-            hud.gameObject.SetActive(false);
-        } else
-        { 
-            hud.gameObject.SetActive(true);
-        }
+
     }
-    
+
     public void AddCoinScore(int coinScore)
     {
         levelCoinScore += coinScore;
@@ -97,18 +89,35 @@ public class GameManager : MonoBehaviour
         if (totalHealth <= 0) { return; }
 
         totalHealth--;
-        hud.EmptyHeart(totalHealth);
+        if (totalHealth % 2 == 0)
+        {
+            hud.EmptyHeart(totalHealth / 2);
+        }
+        else
+        {
+            hud.HalfHeart(totalHealth / 2);
+        }
     }
 
     public void GainHealth()
     {
-        hud.FullHeart(totalHealth);
+        if (totalHealth >= 6) { return; }
+
+        if (totalHealth % 2 == 0)
+        {
+            hud.HalfHeart(totalHealth / 2);
+        }
+        else
+        {
+            hud.FullHeart(totalHealth / 2);
+        }
+
         totalHealth++;
     }
 
     public void ResetHealth()
     {
-        totalHealth = 3;
+        totalHealth = 6;
         hud.ResetHearts();
     }
 
@@ -122,5 +131,11 @@ public class GameManager : MonoBehaviour
     {
         ResetHealth();
         ResetCoinScore();
+        UpdateBossHealthBar(1);
+    }
+
+    public void UpdateBossHealthBar(float health)
+    {
+        hud.UpdateBossHealthBar(health);
     }
 }

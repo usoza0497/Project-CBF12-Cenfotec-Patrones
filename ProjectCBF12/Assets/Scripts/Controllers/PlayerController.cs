@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.UI.Level_Loading;
 using Assets.Scripts.UI.Menus;
+using Assets.Scripts.Observer;
 using System;
 
 public class PlayerController : MonoBehaviour
@@ -22,21 +23,24 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private CapsuleCollider2D myBodyCollider;
     private BoxCollider2D myFeetCollider;
-    private bool isAlive = true;  
-    
+    private bool isAlive = true;
 
     //Public variables
     public AudioClip jumpSound;
+    public AudioClip hurtSound;
+    public AudioClip fireSound;
     public event EventHandler onJumpPlattformHide;
-    
+
+    public bool IsAlive { get => isAlive; set => isAlive = value; }
+
     // Start is called before the first frame update
     public void Start()
-    {   
+    {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponentInChildren<BoxCollider2D>();
-        GameManager.instance.ResetGame(); 
+        GameManager.instance.ResetGame();
     }
 
     // Update is called once per frame
@@ -64,8 +68,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) { return; }
-        
+        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Bouncing")) && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) { return; }
+
         if (value.isPressed)
         {
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
@@ -80,12 +84,12 @@ public class PlayerController : MonoBehaviour
         if (!isAlive) { return; }
 
         if (PauseMenu.isPaused) { return; }
-        
+
         if (value.isPressed)
         {
             Instantiate(bullet, firePoint.position, transform.rotation);
             AudioManager.instance.PlaySound(fireSound);
-        }    
+        }
     }
 
     //Walk controls the player's movement
@@ -103,19 +107,23 @@ public class PlayerController : MonoBehaviour
         {
             myAnimator.SetBool("isWalking", true);
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
-        } else
+        }
+        else
         {
             myAnimator.SetBool("isWalking", false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (!isAlive) { return; }
 
-        if (other.gameObject.CompareTag("Hazards")) {
+        if (other.gameObject.CompareTag("Hazards") || other.gameObject.CompareTag("Enemy"))
+        {
             myRigidbody.velocity = deathKick;
             GameManager.instance.LoseHealth();
+            AudioManager.instance.PlaySound(hurtSound);
+            myAnimator.SetTrigger("Hurt");
         }
     }
 
@@ -127,7 +135,6 @@ public class PlayerController : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody.velocity = deathKick;
-
             GameManager.instance.ResetGame();
             LevelLoader.FadeToLevel(SceneManager.GetActiveScene().name);
         }
