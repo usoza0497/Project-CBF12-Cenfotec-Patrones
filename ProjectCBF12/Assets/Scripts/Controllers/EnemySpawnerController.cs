@@ -5,51 +5,45 @@ using UnityEngine;
 public class EnemySpawnerController : MonoBehaviour
 {
     [SerializeField] private GameObject pyronitiaBasicoPrefab;
-    [SerializeField] private float intervaloPyronitiaBasico;
-
     [SerializeField] private GameObject pyronitiaAvanzadoPrefab;
-    [SerializeField] private float intervaloPyronitiaAvanzado;
-
     [SerializeField] private Transform positionsParent;
     public int opcionPyronitia;
 
     private static List<Enemy> arEnemy = new List<Enemy>();
 
+    private HashSet<Transform> spawnedPoints = new HashSet<Transform>(); // Almacena los puntos de spawn que ya se han utilizado.
+
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
+        SpawnEnemies();
     }
 
-    private IEnumerator SpawnEnemies()
+    private void SpawnEnemies()
     {
-        while (true)
+        foreach (Transform spawnPoint in positionsParent)
         {
-            foreach (Transform spawnPoint in positionsParent)
+            if (!spawnedPoints.Contains(spawnPoint)) // Si no hemos spawnado en este punto antes.
             {
                 string enemyType = ProcesarEnemigo(opcionPyronitia);
                 Debug.Log("Enemy obtenido de ProcesarEnemigo" + enemyType);
 
                 GameObject newEnemyPrefab = null;
-                float spawnInterval = 0f;
 
                 if (enemyType.Equals("PyronitiaBasico"))
                 {
                     newEnemyPrefab = pyronitiaBasicoPrefab;
-                    spawnInterval = intervaloPyronitiaBasico;
                 }
                 else if (enemyType.Equals("PyronitiaAvanzado"))
                 {
                     newEnemyPrefab = pyronitiaAvanzadoPrefab;
-                    spawnInterval = intervaloPyronitiaAvanzado;
                 }
 
-                Debug.Log("newEnemyPrefab: " + pyronitiaBasicoPrefab);
-                Debug.Log("spawnInterval: " + intervaloPyronitiaBasico);
+                Debug.Log("newEnemyPrefab: " + newEnemyPrefab);
 
                 if (newEnemyPrefab != null)
                 {
                     GameObject newEnemy = Instantiate(newEnemyPrefab, spawnPoint.position, Quaternion.identity);
-                    yield return new WaitForSeconds(spawnInterval);
+                    spawnedPoints.Add(spawnPoint); // Marcar este punto como utilizado.
                 }
 
                 Debug.Log(enemyType);
@@ -96,7 +90,6 @@ public class EnemySpawnerController : MonoBehaviour
                 break;
         }
         
-        Debug.Log("Nombre de Enemigo a Spawnear: " + nombreEnemigo);
         return nombreEnemigo;
 
     }
