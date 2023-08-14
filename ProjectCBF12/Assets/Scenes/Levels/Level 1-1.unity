@@ -15508,9 +15508,9 @@ MonoBehaviour:
   pyronitiaBasicoPrefab: {fileID: 8298039691408503452, guid: 722c566ab6f704440a9dee07425bf9bd, type: 3}
   intervaloPyronitiaBasico: 10
   pyronitiaAvanzadoPrefab: {fileID: 2532878104790761271, guid: 2af91173ce1c77b4abc209503c78ff64, type: 3}
-  intervaloPyronitiaAvanzado: 30
+  intervaloPyronitiaAvanzado: 3
   positionsParent: {fileID: 2050641984}
-  opcionPyronitia: 1
+  opcionPyronitia: 2
 --- !u!4 &2050641984
 Transform:
   m_ObjectHideFlags: 0
