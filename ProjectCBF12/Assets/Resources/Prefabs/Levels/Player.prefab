@@ -82,7 +82,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4697764520810011152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.445, y: -0.016, z: -0.011786301}
+  m_LocalPosition: {x: 0.383, y: -0.016, z: -0.011786301}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -214,7 +214,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12180424, y: 0.009909153}
+  m_Offset: {x: -0.15, y: 0.009909153}
   m_Size: {x: 0.57440186, y: 0.7768755}
   m_Direction: 0
 --- !u!95 &4697764520822104519
@@ -285,6 +285,8 @@ MonoBehaviour:
   deathKick: {x: 0, y: 20}
   bullet: {fileID: 1992600403876169357, guid: 4551ca524f218c04193001683d1158c8, type: 3}
   firePoint: {fileID: 4697764520810011153}
+  attackRadio: 0.5
   jumpSound: {fileID: 8300000, guid: 4ad734be047b5b647bc3c24f07547f21, type: 3}
   hurtSound: {fileID: 8300000, guid: d0cd8aecd7bb7644391e143cd7a5ae8a, type: 3}
   fireSound: {fileID: 8300000, guid: 909c4624d76098e48b9f23eceb415089, type: 3}
+  attackSound: {fileID: 8300000, guid: 5405ac2db255ab0418c2f2ecfe9ba577, type: 3}
