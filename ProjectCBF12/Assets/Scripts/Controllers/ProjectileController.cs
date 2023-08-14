@@ -13,6 +13,11 @@ public class ProjectileController : MonoBehaviour
     private GameObject player;
     private float bulletSpeed;
 
+    //Public variables
+    public AudioClip bulletSound;
+    public int bulletAttackPower;
+
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -20,6 +25,7 @@ public class ProjectileController : MonoBehaviour
         myBodyCollider = GetComponent<BoxCollider2D>();
         player = GameObject.FindWithTag("Player");
         bulletSpeed = player.transform.localScale.x * projectileVelocity;
+        AudioManager.instance.PlaySound(bulletSound);
     }
 
     // Update is called once per frame

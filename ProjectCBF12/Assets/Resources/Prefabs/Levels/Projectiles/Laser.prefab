@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileVelocity: 5
+  bulletSound: {fileID: 8300000, guid: 909c4624d76098e48b9f23eceb415089, type: 3}
+  bulletAttackPower: 2

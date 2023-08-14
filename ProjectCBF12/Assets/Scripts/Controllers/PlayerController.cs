@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 deathKick = new Vector2(0f, 20f);
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
+    [SerializeField] float attackRadio = 0.5f;
 
     //Private variables
     private Vector2 moveInput;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     //Public variables
     public AudioClip jumpSound;
     public AudioClip hurtSound;
-    public AudioClip fireSound;
+    public AudioClip attackSound;
     public event EventHandler onJumpPlattformHide;
 
     public bool IsAlive { get => isAlive; set => isAlive = value; }
@@ -50,7 +51,6 @@ public class PlayerController : MonoBehaviour
 
         Walk();
         FlipSprite();
-        //GetHurt();
         Die();
         Bouncing();
     }
@@ -88,8 +88,29 @@ public class PlayerController : MonoBehaviour
         if (value.isPressed)
         {
             Instantiate(bullet, firePoint.position, transform.rotation);
-            AudioManager.instance.PlaySound(fireSound);
         }
+
+        /* Collider2D[] objects = Physics2D.OverlapCircleAll(firePoint.position, attackRadio);
+
+        if (value.isPressed)
+        {
+            myAnimator.SetTrigger("Attack");
+            AudioManager.instance.PlaySound(attackSound);
+            foreach (Collider2D collision in objects)
+            {
+                if (collision.gameObject.CompareTag("Enemy"))
+                {
+                    Debug.Log("Enemy hit");
+                    collision.gameObject.GetComponent<Minotaur>().ReceiveDamage(10);
+                }
+            }
+        } */
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(firePoint.position, attackRadio);
     }
 
     //Walk controls the player's movement
@@ -118,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if (other.gameObject.CompareTag("Hazards") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Hazards"))
         {
             myRigidbody.velocity = deathKick;
             GameManager.instance.LoseHealth();
@@ -152,6 +173,7 @@ public class PlayerController : MonoBehaviour
     public void GetHurt()
     {
         if (!isAlive) { return; }
+        AudioManager.instance.PlaySound(hurtSound);
         myAnimator.SetTrigger("Hurt");
     }
 }

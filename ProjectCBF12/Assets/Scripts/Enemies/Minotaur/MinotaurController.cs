@@ -61,7 +61,7 @@ public class MinotaurController : MonoBehaviour
         if (!boss.IsAlive()) return;
 
         if (other.gameObject.CompareTag("Bullet")) {
-            boss.ReceiveDamage(5);
+            boss.ReceiveDamage(other.gameObject.GetComponent<ProjectileController>().bulletAttackPower);
         }
     }
 

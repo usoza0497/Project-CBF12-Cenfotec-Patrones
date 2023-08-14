@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Memento;
+using Assets.Scripts.State;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private string currentLevel = "Level 1-1";
     private int levelCoinScore = 0;
     private int totalHealth = 6;
+    private PlayerState playerState;
 
     //Public variables
     public HUD hud;
@@ -49,6 +51,12 @@ public class GameManager : MonoBehaviour
     {
         get { return mementoManager; }
         set { mementoManager = value; }
+    }
+
+    public PlayerState PlayerState
+    {
+        get { return playerState; }
+        set { playerState = value; }
     }
 
     //Methods

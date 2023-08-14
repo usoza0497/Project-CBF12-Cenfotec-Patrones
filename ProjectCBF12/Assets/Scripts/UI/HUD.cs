@@ -70,7 +70,7 @@ public class HUD : MonoBehaviour
             BossHealthBar.gameObject.SetActive(true);
             timerObject.gameObject.SetActive(false);
         }
-        else if (sceneName.Contains("Map"))
+        else if (sceneName.Contains("Map") || sceneName.Contains("Store"))
         {
             coinScoreText.text = GameManager.instance.GlobalCoinScore.ToString();
             coinScoreObject.gameObject.SetActive(true);
