@@ -35,7 +35,7 @@ public class MinotaurController : MonoBehaviour
     private void Update()
     {
         FlipSprite();
-        GameManager.instance.UpdateBossHealthBar(boss.BossHealth / 100);
+        GameManager.instance.UpdateBossHealthBar(boss.EnemyHealth / 100);
         Die();
     }
 
