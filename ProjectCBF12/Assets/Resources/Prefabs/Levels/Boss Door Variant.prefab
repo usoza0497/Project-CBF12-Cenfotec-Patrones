@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8856954084792855271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6604061304060445104, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6536266
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445104, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9439811
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445104, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.010645479
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445104, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.089629024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445104, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445104, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.1666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445105, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: levelName
+      value: Level 1-3_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1183753
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1183753
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1183753
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445106, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604061304060445107, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: ae3918a914038694d852d0bb81f62473, type: 3}
+    - target: {fileID: 6604061304060445108, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+      propertyPath: m_Name
+      value: Boss Door Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6604061304060445105, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+--- !u!1 &2399413734858091347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6604061304060445108, guid: b21dc4ccff28eaa49b9fe11d858912b5, type: 3}
+  m_PrefabInstance: {fileID: 8856954084792855271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &616008646
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399413734858091347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: defe84cf36a77c742b8df25f9ca82203, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &616008647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399413734858091347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0f53b1e0ae62d4485290079c37707d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: Level 1-3_Boss
+  doorSound: {fileID: 8300000, guid: efda2937317ea2341b7189a1474e126d, type: 3}

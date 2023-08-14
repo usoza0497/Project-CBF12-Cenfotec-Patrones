@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Memento;
+using Assets.Scripts.State;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +12,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     //Private variables
-    private int totalCoinScore = 0;
+    private MementoManager mementoManager = new MementoManager();
+    private int globalCoinScore = 0;
+    private string currentLevel = "Level 1-1";
+    private int levelCoinScore = 0;
     private int totalHealth = 6;
+    private PlayerState playerState;
 
     //Public variables
     public HUD hud;
@@ -23,10 +29,34 @@ public class GameManager : MonoBehaviour
         set { totalHealth = value; }
     }
 
-    public int TotalCoinScore
+    public int LevelCoinScore
     {
-        get { return totalCoinScore; }
-        set { totalCoinScore = value; }
+        get { return levelCoinScore; }
+        set { levelCoinScore = value; }
+    }
+
+    public int GlobalCoinScore
+    {
+        get { return globalCoinScore; }
+        set { globalCoinScore = value; }
+    }
+
+    public string CurrentLevel
+    {
+        get { return currentLevel; }
+        set { currentLevel = value; }
+    }
+
+    public MementoManager MementoManager
+    {
+        get { return mementoManager; }
+        set { mementoManager = value; }
+    }
+
+    public PlayerState PlayerState
+    {
+        get { return playerState; }
+        set { playerState = value; }
     }
 
     //Methods
@@ -38,28 +68,28 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
-            Debug.LogWarning("Duplicate GameManager destroyed.");
         }
     }
 
     void Start()
     {
-        hud.UpdateCoinScore(totalCoinScore);
+        hud.UpdateCoinScore(levelCoinScore);
         hud.ResetHearts();
     }
 
     void Update()
     {
-        
+
     }
-    
+
     public void AddCoinScore(int coinScore)
     {
-        totalCoinScore += coinScore;
-        hud.UpdateCoinScore(totalCoinScore);
+        levelCoinScore += coinScore;
+        hud.UpdateCoinScore(levelCoinScore);
     }
 
     public void LoseHealth()
@@ -69,10 +99,11 @@ public class GameManager : MonoBehaviour
         totalHealth--;
         if (totalHealth % 2 == 0)
         {
-            hud.EmptyHeart(totalHealth/2);
-        } else
+            hud.EmptyHeart(totalHealth / 2);
+        }
+        else
         {
-            hud.HalfHeart(totalHealth/2);
+            hud.HalfHeart(totalHealth / 2);
         }
     }
 
@@ -82,10 +113,11 @@ public class GameManager : MonoBehaviour
 
         if (totalHealth % 2 == 0)
         {
-            hud.HalfHeart(totalHealth/2);
-        } else
+            hud.HalfHeart(totalHealth / 2);
+        }
+        else
         {
-            hud.FullHeart(totalHealth/2);
+            hud.FullHeart(totalHealth / 2);
         }
 
         totalHealth++;
@@ -99,8 +131,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetCoinScore()
     {
-        totalCoinScore = 0;
-        hud.UpdateCoinScore(totalCoinScore);
+        levelCoinScore = 0;
+        hud.UpdateCoinScore(levelCoinScore);
     }
 
     public void ResetGame()

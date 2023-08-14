@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         } else {
             Destroy(gameObject);
-            Debug.LogWarning("AudioManager instance already exists, destroying this one.");
             return;
         }
     }

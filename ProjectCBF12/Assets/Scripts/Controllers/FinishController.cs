@@ -11,6 +11,10 @@ using Assets.Scripts.UI.Level_Loading;
         {
             if (other.gameObject.tag == "Player")
             {
+                if (levelName.Contains("Map") || levelName.Contains("Boss"))
+                {
+                    GameManager.instance.MementoManager.updateGameStatsMemento(GameManager.instance.CurrentLevel, GameManager.instance.LevelCoinScore + GameManager.instance.GlobalCoinScore);
+                } 
                 LevelLoader.FadeToLevel(levelName);
             }
         }

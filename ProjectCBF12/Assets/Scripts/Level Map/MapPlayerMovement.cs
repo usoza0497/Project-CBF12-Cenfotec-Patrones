@@ -16,6 +16,8 @@ public class MapPlayerMovement : MonoBehaviour
     public void Start()
     {
         myAnimator = GetComponent<Animator>();
+        currentPoint = GameObject.Find("/Map Point Holder/" + GameManager.instance.CurrentLevel).GetComponent<MapPoint>();
+        transform.position = currentPoint.transform.position;
     }
 
     public void Update()
@@ -64,6 +66,7 @@ public class MapPlayerMovement : MonoBehaviour
     public void OnEnter(InputValue value) {
         if (levelSelected != "")
         {
+            GameManager.instance.MementoManager.updateGameStatsMemento(levelSelected, GameManager.instance.GlobalCoinScore);
             LevelLoader.FadeToLevel(levelSelected);
         } 
     }
