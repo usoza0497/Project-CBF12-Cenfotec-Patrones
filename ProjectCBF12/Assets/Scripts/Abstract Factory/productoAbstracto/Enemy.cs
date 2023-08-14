@@ -20,6 +20,12 @@ public abstract class Enemy : MonoBehaviour
     public string[] RangeAttacks { get => _RangeAttacks; set => _RangeAttacks = value; }
     public string Log { get => _Log; set => _Log = value; }
 
+
+    public string GetName()
+    {
+        return this._EnemyName;
+    }
+
     public string MeleeAttack()
     {
         string attackUsed = null;

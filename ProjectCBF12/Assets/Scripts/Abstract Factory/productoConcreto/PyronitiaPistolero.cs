@@ -8,11 +8,13 @@ public class PyronitiaPistolero : Enemy
     public PyronitiaPistolero()
     {
         this._EnemyHealth = 100f;
+        this._EnemyName = "PyronitiaPistolero";
     }
     public void SetName()
     {
         this._EnemyName = "PyronitiaPistolero";
     }
+
     protected override string DoMeleeAttack()
     {
         return null;

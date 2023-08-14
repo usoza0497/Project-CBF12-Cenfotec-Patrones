@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PyronitiaBasicoController : MonoBehaviour
+public class PyronitiaAvanzadoController : MonoBehaviour
 {
-    private PyronitiaBasico pyronitia;
+    private PyronitiaAvanzado pyronitia;
     private Animator myAnimator;
     private Transform player;
     private bool isFlipped = false;
     private bool isDeathTriggered = false;
+
     public Transform attackController;
-    
-    
+    public Transform attackController2;
     public float attackRadio;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         myAnimator = GetComponent<Animator>();
-        pyronitia = GetComponent<PyronitiaBasico>();
+        pyronitia = GetComponent<PyronitiaAvanzado>();
         pyronitia.SetName();
         pyronitia.SetMeleeAttacks();
     }
@@ -81,9 +81,11 @@ public class PyronitiaBasicoController : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackController.position, attackRadio);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(attackController.position, attackRadio);
+    //    Gizmos.DrawWireSphere(attackController2.position, attackRadio);
+    //}
+
 }

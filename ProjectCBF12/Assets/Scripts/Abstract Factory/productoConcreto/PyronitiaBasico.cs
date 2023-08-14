@@ -7,12 +7,14 @@ public class PyronitiaBasico : Enemy
 {
     public PyronitiaBasico()
     {
-        this._EnemyHealth = 150f;
+        this._EnemyHealth = 50f;
+        this._EnemyName = "PyronitiaBasico";
     }
     public void SetName()
     {
         this._EnemyName = "PyronitiaBasico";
     }
+
     protected override string DoMeleeAttack()
     {
         string attack = MeleeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length)];

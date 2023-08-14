@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FabricaPyronitiaAvanzado : Enemigos
+public class FabricaPyronitiaAvanzado : FabricaEnemigos
 {
     public Enemy crearPyronitia()
     {
