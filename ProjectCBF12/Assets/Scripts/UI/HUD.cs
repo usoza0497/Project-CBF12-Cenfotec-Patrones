@@ -8,14 +8,17 @@ using UnityEngine.SceneManagement;
 public class HUD : MonoBehaviour
 {
     public TextMeshProUGUI coinScoreText;
+    public TextMeshProUGUI powerPointsText;
     public RectTransform coinScoreObject;
     public RectTransform healthObject;
     public RectTransform timerObject;
+    public RectTransform ppObject;
     public GameObject[] hearts;
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Sprite halfHeart;
     public Slider BossHealthBar;
+    
 
 
     public void Update()
@@ -60,6 +63,11 @@ public class HUD : MonoBehaviour
         BossHealthBar.value = health;
     }
 
+    public void UpdatePowerPoints(int powerPoints)
+    {
+        powerPointsText.text = powerPoints.ToString();
+    }
+
     public void ChangeHudAppearance()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -69,11 +77,13 @@ public class HUD : MonoBehaviour
             coinScoreObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(true);
             timerObject.gameObject.SetActive(false);
+            ppObject.gameObject.SetActive(false);
         }
         else if (sceneName.Contains("Map") || sceneName.Contains("Store"))
         {
             coinScoreText.text = GameManager.instance.GlobalCoinScore.ToString();
             coinScoreObject.gameObject.SetActive(true);
+            ppObject.gameObject.SetActive(true);
             healthObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(false);
             timerObject.gameObject.SetActive(false);
@@ -84,6 +94,7 @@ public class HUD : MonoBehaviour
             BossHealthBar.gameObject.SetActive(false);
             timerObject.gameObject.SetActive(true);
             healthObject.gameObject.SetActive(true);
+            ppObject.gameObject.SetActive(false);
         }
     }
 }

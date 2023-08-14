@@ -4,19 +4,22 @@ using UnityEngine;
 
 namespace Assets.Scripts.State
 {
-    public class NormalState : State
+    public class BlueState : State
     {
         public override void verifyState(PlayerState PlayerState)
         {
-            if (PlayerState.PowerPoints >= 50)
+            if (PlayerState.PowerPoints < 50)
             {
-                PlayerState.SetState(new BlueState());
+                PlayerState.SetState(new NormalState());
+            } else if (PlayerState.PowerPoints >= 100)
+            {
+                PlayerState.SetState(new OrangeState());
             }
         }
 
         public override string getState()
         {
-            return "Normal";
+            return "Blue";
         }
     }
 }

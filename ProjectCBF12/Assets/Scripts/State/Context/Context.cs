@@ -18,7 +18,7 @@ namespace Assets.Scripts.State
             this.state = state;
         }
 
-        public void verifyState(PlayerState PlayerState)
+        public void VerifyState(PlayerState PlayerState)
         {
             this.state.verifyState(PlayerState);
         }

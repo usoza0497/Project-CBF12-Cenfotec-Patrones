@@ -24,10 +24,10 @@ namespace Assets.Scripts.State
             this.powerPoints = powerPoints;
         }
 
-        public void AddPowerPoints(int powerPoints)
+        public void AddPowerPoints(int pPowerPoints)
         {
-            this.powerPoints += powerPoints;
-            verifyState(this);
+            this.powerPoints += pPowerPoints;
+            this.VerifyState(this);
         }
 
         public override int getPowerPoints()

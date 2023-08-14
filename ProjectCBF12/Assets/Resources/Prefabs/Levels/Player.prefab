@@ -283,10 +283,13 @@ MonoBehaviour:
   runSpeed: 6
   jumpSpeed: 20
   deathKick: {x: 0, y: 20}
-  bullet: {fileID: 1992600403876169357, guid: 4551ca524f218c04193001683d1158c8, type: 3}
+  greenLaser: {fileID: 1992600403876169357, guid: 4551ca524f218c04193001683d1158c8, type: 3}
+  blueLaser: {fileID: 1992600403876169357, guid: 50719a5eda3961441ac8dfd425b23df1, type: 3}
+  orangeLaser: {fileID: 1992600403876169357, guid: bc47de3ee6b2e2d4aacb61911537cf8c, type: 3}
+  pinkLaser: {fileID: 1992600403876169357, guid: ffe6069179f6f914390188e123e456f7, type: 3}
+  purpleLaser: {fileID: 1992600403876169357, guid: 58f6ea18bd222014191d5bad81cef22f, type: 3}
   firePoint: {fileID: 4697764520810011153}
   attackRadio: 0.5
   jumpSound: {fileID: 8300000, guid: 4ad734be047b5b647bc3c24f07547f21, type: 3}
   hurtSound: {fileID: 8300000, guid: d0cd8aecd7bb7644391e143cd7a5ae8a, type: 3}
-  fireSound: {fileID: 8300000, guid: 909c4624d76098e48b9f23eceb415089, type: 3}
   attackSound: {fileID: 8300000, guid: 5405ac2db255ab0418c2f2ecfe9ba577, type: 3}
