@@ -73,17 +73,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playerState = new PlayerState();
     }
 
     void Start()
     {
+        globalCoinScore = 1000;
         hud.UpdateCoinScore(levelCoinScore);
         hud.ResetHearts();
     }
 
     void Update()
     {
-
     }
 
     public void AddCoinScore(int coinScore)
@@ -145,5 +146,16 @@ public class GameManager : MonoBehaviour
     public void UpdateBossHealthBar(float health)
     {
         hud.UpdateBossHealthBar(health);
+    }
+
+    public void AddPowerPoints(int powerPoints)
+    {
+        PlayerState.AddPowerPoints(powerPoints);
+        hud.UpdatePowerPoints(PlayerState.getPowerPoints());
+    }
+
+    public void VerifyState()
+    {
+        PlayerState.VerifyState(PlayerState);
     }
 }

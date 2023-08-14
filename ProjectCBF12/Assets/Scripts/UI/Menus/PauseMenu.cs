@@ -40,6 +40,7 @@ namespace Assets.Scripts.UI.Menus
         public void LoadMap() {
             GameManager.instance.MementoManager.restoreMemento();
             Time.timeScale = 1f;
+            isPaused = false;
             LevelLoader.FadeToLevel("Level Map");
         }
     }

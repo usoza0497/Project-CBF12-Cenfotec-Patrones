@@ -265,6 +265,17 @@
                 },
                 {
                     "name": "",
+                    "id": "64eba199-8712-49de-84b6-06c679824453",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "99e0d114-c33e-4a0e-b582-e366419503ae",
                     "path": "<Keyboard>/space",
                     "interactions": "",

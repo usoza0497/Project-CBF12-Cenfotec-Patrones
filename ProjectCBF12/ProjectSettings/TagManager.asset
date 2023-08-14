@@ -8,6 +8,7 @@ TagManager:
   - Hazards
   - Enemy
   - Bullet
+  - Event
   layers:
   - Default
   - TransparentFX

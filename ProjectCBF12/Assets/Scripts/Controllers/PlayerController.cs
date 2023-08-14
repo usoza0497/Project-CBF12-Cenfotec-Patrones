@@ -14,7 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float runSpeed = 6f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(0f, 20f);
-    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject greenLaser;
+    [SerializeField] GameObject blueLaser;
+    [SerializeField] GameObject orangeLaser;
+    [SerializeField] GameObject pinkLaser;
+    [SerializeField] GameObject purpleLaser;
     [SerializeField] Transform firePoint;
     [SerializeField] float attackRadio = 0.5f;
 
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D myBodyCollider;
     private BoxCollider2D myFeetCollider;
     private bool isAlive = true;
+    private string playerState;
 
     //Public variables
     public AudioClip jumpSound;
@@ -49,6 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
+        playerState = GameManager.instance.PlayerState.getState();
         Walk();
         FlipSprite();
         Die();
@@ -78,7 +84,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //OnFire is called when the player fires a bullet
+    //OnFire is called when the player fires a laser
     public void OnFire(InputValue value)
     {
         if (!isAlive) { return; }
@@ -87,24 +93,26 @@ public class PlayerController : MonoBehaviour
 
         if (value.isPressed)
         {
-            Instantiate(bullet, firePoint.position, transform.rotation);
+            switch (playerState) 
+            {
+                case "Normal":
+                    Instantiate(greenLaser, firePoint.position, transform.rotation);
+                    break;
+                case "Blue":
+                    Instantiate(blueLaser, firePoint.position, transform.rotation);
+                    break;
+                case "Orange":
+                    Instantiate(orangeLaser, firePoint.position, transform.rotation);
+                    break;
+                case "Pink":
+                    Instantiate(pinkLaser, firePoint.position, transform.rotation);
+                    break;
+                case "Purple":
+                    Instantiate(purpleLaser, firePoint.position, transform.rotation);
+                    break;
+            }
         }
 
-        /* Collider2D[] objects = Physics2D.OverlapCircleAll(firePoint.position, attackRadio);
-
-        if (value.isPressed)
-        {
-            myAnimator.SetTrigger("Attack");
-            AudioManager.instance.PlaySound(attackSound);
-            foreach (Collider2D collision in objects)
-            {
-                if (collision.gameObject.CompareTag("Enemy"))
-                {
-                    Debug.Log("Enemy hit");
-                    collision.gameObject.GetComponent<Minotaur>().ReceiveDamage(10);
-                }
-            }
-        } */
     }
 
     private void OnDrawGizmos()
