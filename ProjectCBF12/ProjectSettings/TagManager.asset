@@ -8,6 +8,9 @@ TagManager:
   - Hazards
   - Enemy
   - Bullet
+  - PyronitiaMeleeAttack1
+  - PyronitiaMeleeAttack2
+  - PyronitiaMeleeAttack3
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,9 @@ using UnityEngine;
 public class XenoController : MonoBehaviour
 {
     private Transform player;
+    private Animator myAnimator;
     private bool isFlipped = false;
+    private PyronitiaBasico enemy;
     [SerializeField] GameObject fireball;
     [SerializeField] Transform mouth;
 
@@ -33,6 +35,21 @@ public class XenoController : MonoBehaviour
             transform.localScale = new Vector2(1f, 1f);
             isFlipped = false;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+
+        }
+
+    }
+
+    private void Die()
+    {
+
     }
 
     public void Fire()

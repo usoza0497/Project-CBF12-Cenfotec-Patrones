@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Boss : MonoBehaviour
 {
-    protected float _BossHealth = 100f;
+    protected float _BossHealth = 1000f;
     protected string _BossName;
     protected string[] _MeleeAttacks;
     protected string[] _RangeAttacks;
