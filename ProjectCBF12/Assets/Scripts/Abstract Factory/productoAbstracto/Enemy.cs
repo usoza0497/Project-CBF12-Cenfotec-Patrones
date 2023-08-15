@@ -86,6 +86,9 @@ public abstract class Enemy : MonoBehaviour
             case "Minotaur":
                 attackNames = new string[] { "Attack1", "Attack2", "Attack3" };
                 break;
+                case "Ice Monster":
+                attackNames = new string[] { "Attack" };
+                break;
             default:
                 attackNames = new string[] { "Punch", "Kick", "Headbutt" };
                 break;
@@ -105,6 +108,12 @@ public abstract class Enemy : MonoBehaviour
                 break;
             case "PyronitiaVolador":
                 attackNames = new string[] { "Attack3" };
+                break;
+                case "Minotaur":
+                attackNames = new string[] { "Stomp" };
+                break;
+                case "Ice Monster":
+                attackNames = new string[] { "Cast" };
                 break;
             default:
                 attackNames = new string[] { "Fireball", "Iceball", "Lightning" };

@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject pinkLaser;
     [SerializeField] GameObject purpleLaser;
     [SerializeField] Transform firePoint;
-    [SerializeField] float attackRadio = 0.5f;
 
     //Private variables
     private Vector2 moveInput;
@@ -113,12 +112,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(firePoint.position, attackRadio);
     }
 
     //Walk controls the player's movement
