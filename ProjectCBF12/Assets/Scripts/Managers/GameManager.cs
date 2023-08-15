@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     //Private variables
     private MementoManager mementoManager = new MementoManager();
-    private int globalCoinScore = 0;
+    private int globalCoinScore = 1000;
     private string currentLevel = "Level 1-1";
     private int levelCoinScore = 0;
     private int totalHealth = 6;
@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        globalCoinScore = 1000;
         hud.UpdateCoinScore(levelCoinScore);
         hud.ResetHearts();
     }

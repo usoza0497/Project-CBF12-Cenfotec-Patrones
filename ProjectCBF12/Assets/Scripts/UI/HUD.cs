@@ -17,6 +17,9 @@ public class HUD : MonoBehaviour
     public Sprite emptyHeart;
     public Sprite fullHeart;
     public Sprite halfHeart;
+    public Sprite MinotaurHead;
+    public Sprite IceMonsterHead;
+    public Image BossHead;
     public Slider BossHealthBar;
     
 
@@ -74,6 +77,15 @@ public class HUD : MonoBehaviour
 
         if (sceneName.Contains("Boss"))
         {
+            if(sceneName.Contains("Level 1-3"))
+            {
+                BossHead.sprite = MinotaurHead;
+            }
+            else if (sceneName.Contains("Level 2-3"))
+            {
+                BossHead.sprite = IceMonsterHead;
+            }
+
             coinScoreObject.gameObject.SetActive(false);
             BossHealthBar.gameObject.SetActive(true);
             timerObject.gameObject.SetActive(false);
