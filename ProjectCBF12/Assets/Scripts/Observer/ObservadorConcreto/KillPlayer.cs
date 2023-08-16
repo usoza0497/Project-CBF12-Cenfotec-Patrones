@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.Observer
@@ -9,28 +10,29 @@ namespace Assets.Scripts.Observer
 
         public override void Actualizar()
         {
-            Awake();
-        }
-
-        public void Start()
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
             timer = FindObjectOfType<TimerLeft>();
-            Actualizar();
+            execute(timer);
         }
-        private void Awake()
+        private void execute(TimerLeft timer)
         {
-            timer = FindObjectOfType<TimerLeft>();
             if (timer != null)
             {
                 timer.TimeOut += PlayerKill;
             }
         }
-
         private void PlayerKill()
         {
             GameManager.instance.GetTotalHealth=0;
         }
+
+        // Start is called before the first frame update
+        public void Start()
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            Actualizar();
+        }
+
+
     }
 }
 
