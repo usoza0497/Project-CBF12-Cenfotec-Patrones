@@ -55,10 +55,7 @@ public abstract class Enemy : MonoBehaviour
         _EnemyHealth -= damage;
         return !IsAlive();
     }
-    public IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
+  
     public bool IsAlive()
     {
         if (_EnemyHealth <= 0)

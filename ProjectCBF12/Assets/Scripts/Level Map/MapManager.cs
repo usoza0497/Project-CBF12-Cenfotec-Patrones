@@ -12,6 +12,7 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
+        HidePanel();
         GameManager.instance.VerifyState();
         string message = "Basado en tus puntos de poder, tu estado actual es: ";
         
@@ -33,7 +34,14 @@ public class MapManager : MonoBehaviour
                 ChangeMessage(message + "\nEstado de Poder Violeta - Fuerza Celestial Absoluta");
                 break;
         }
-        ShowPanel();
+
+        if(GameManager.instance.MementoManager.getLevelName() != null)
+        {
+            if(GameManager.instance.MementoManager.getLevelName().Contains("Store"))
+            {
+                ShowPanel();
+            }
+        }
     }
 
     private void ChangeMessage(string message)

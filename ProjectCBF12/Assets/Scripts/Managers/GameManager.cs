@@ -9,11 +9,13 @@ using Assets.Scripts.State;
 public class GameManager : MonoBehaviour
 {
     //Singleton pattern
+    private static GameManager _instance;
+    
     public static GameManager instance { get; private set; }
 
     //Private variables
     private MementoManager mementoManager = new MementoManager();
-    private int globalCoinScore = 1000;
+    private int globalCoinScore = 0;
     private string currentLevel = "Level 1-1";
     private int levelCoinScore = 0;
     private int totalHealth = 6;
