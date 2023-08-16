@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2783039660242354171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2783039660242354149}
+  - component: {fileID: 2783039660242354148}
+  m_Layer: 0
+  m_Name: SpawnerEnemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2783039660242354149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783039660242354171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.261982, y: 11.818165, z: -0.35683924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2783039660242354148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2783039660242354171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20f23d93eaeeb344bd8f1a1a9035462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pyronitiaBasicoPrefab: {fileID: 1915033163492688092, guid: 722c566ab6f704440a9dee07425bf9bd, type: 3}
+  pyronitiaAvanzadoPrefab: {fileID: 9122190882250101910, guid: 2af91173ce1c77b4abc209503c78ff64, type: 3}
+  pyronitiaKamikasePrefab: {fileID: 3516154418392638647, guid: 30c6dcbfe569eac468e9ed5a94cbbfb8, type: 3}
+  pyronitiaVoladorPrefab: {fileID: 5453476911856900883, guid: f40f1c38ee04e804089fdf2c4b096b91, type: 3}
+  positionsParent: {fileID: 2783039660242354149}
+  opcionPyronitia: 0

@@ -6,6 +6,9 @@ public class EnemySpawnerController : MonoBehaviour
 {
     [SerializeField] private GameObject pyronitiaBasicoPrefab;
     [SerializeField] private GameObject pyronitiaAvanzadoPrefab;
+    [SerializeField] private GameObject pyronitiaKamikasePrefab;
+    [SerializeField] private GameObject pyronitiaVoladorPrefab;
+
     [SerializeField] private Transform positionsParent;
     public int opcionPyronitia;
 
@@ -36,6 +39,13 @@ public class EnemySpawnerController : MonoBehaviour
                 else if (enemyType.Equals("PyronitiaAvanzado"))
                 {
                     newEnemyPrefab = pyronitiaAvanzadoPrefab;
+                } else if (enemyType.Equals("PyronitiaKamikase"))
+                {
+                    newEnemyPrefab = pyronitiaKamikasePrefab;
+
+                } else if (enemyType.Equals("PyronitiaVolador"))
+                {
+                    newEnemyPrefab = pyronitiaVoladorPrefab;
                 }
 
                 Debug.Log("newEnemyPrefab: " + newEnemyPrefab);
@@ -77,7 +87,7 @@ public class EnemySpawnerController : MonoBehaviour
                 nombreEnemigo = CrearFabricaEnemigos(fabricaEnemigos);
                 break;
             case 3:
-                fabricaEnemigos = new FabricaPyronitiaPistolero();
+                fabricaEnemigos = new FabricaPyronitiaKamikase();
                 nombreEnemigo = CrearFabricaEnemigos(fabricaEnemigos);
                 break;
             case 4:

@@ -10,19 +10,14 @@ public class PyronitiaAvanzadoRun : StateMachineBehaviour
     private PyronitiaAvanzado pyronitiaAvanzado;
     private Transform player;
     Rigidbody2D myRigidbody;
-    [SerializeField] float speed = 2f;
+    [SerializeField] float speed = 6f;
     [SerializeField] float meleeRange = 2f;
-    private bool hasAttacked = false;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Console.WriteLine("On State Enter:");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         myRigidbody = animator.GetComponent<Rigidbody2D>();
         pyronitiaAvanzado = animator.GetComponent<PyronitiaAvanzado>();
-        pyronitiaAvanzado.SetName();
-        pyronitiaAvanzado.SetMeleeAttacks();
-        hasAttacked = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -31,18 +26,12 @@ public class PyronitiaAvanzadoRun : StateMachineBehaviour
         Vector2 target = new Vector2(player.position.x, myRigidbody.position.y);
         Vector2 newPos = Vector2.MoveTowards(myRigidbody.position, target, speed * Time.deltaTime);
         myRigidbody.MovePosition(newPos);
-
-        if (IsPlayerInRange() && !hasAttacked)
-        {
-            animator.SetTrigger(pyronitiaAvanzado.MeleeAttack());
-            hasAttacked = true;
-        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Run");
+
     }
 
     private bool IsPlayerInRange()

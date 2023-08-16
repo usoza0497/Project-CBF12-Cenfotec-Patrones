@@ -15,6 +15,8 @@ public class PyronitiaBasico : Enemy
         this._EnemyName = "PyronitiaBasico";
     }
 
+    // Override SetMeleeAttacks method if necessary
+
     protected override string DoMeleeAttack()
     {
         string attack = MeleeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length)];
