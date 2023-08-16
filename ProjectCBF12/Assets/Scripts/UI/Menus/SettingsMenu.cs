@@ -13,8 +13,6 @@ public class SettingsMenu : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    public TMP_Dropdown resolutionDropdown;
-
     public GameObject SettingsMenuPanel;
 
     /*Métodos del Mediador*/
@@ -38,11 +36,6 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-    }
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = Screen.resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, false);
     }
         public void SetVolume(float volumen)
     {
