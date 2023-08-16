@@ -3119,7 +3119,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467649542
 GameObject:
@@ -4021,6 +4021,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1640652281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1624403298013213322, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624403298013213322, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624403298013213322, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964706, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_Name
+      value: Mediator Pause Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.8846407
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4258797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.23285526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552426158165964708, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793177071400609264, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793177071400609264, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38e3b2562a0ab674bb6acf164c8daf22, type: 3}
 --- !u!4 &1767958068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4697764520822104541, guid: 788f119a77a7a2b4bb11e1ebbd14f67d, type: 3}
@@ -4253,11 +4330,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7002774972062173701, guid: 634521265bcd3a245ba3c0650ed355ef, type: 3}
+    - target: {fileID: 1752223032, guid: 634521265bcd3a245ba3c0650ed355ef, type: 3}
       propertyPath: bossDoor
       value: 
       objectReference: {fileID: 1198588799193627628}
-    - target: {fileID: 7002774972062173701, guid: 634521265bcd3a245ba3c0650ed355ef, type: 3}
+    - target: {fileID: 1752223032, guid: 634521265bcd3a245ba3c0650ed355ef, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1357951393}

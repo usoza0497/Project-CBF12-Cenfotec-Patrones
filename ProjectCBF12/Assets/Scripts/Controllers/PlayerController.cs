@@ -7,6 +7,7 @@ using Assets.Scripts.UI.Level_Loading;
 using Assets.Scripts.UI.Menus;
 using Assets.Scripts.Observer;
 using System;
+using Assets.Scripts.Mediator;
 
 public class PlayerController : MonoBehaviour
 {
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) { return; }
 
-        if (PauseMenu.isPaused) { return; }
+        if(MenuMediator.isPaused) { return; }
 
         if (value.isPressed)
         {
