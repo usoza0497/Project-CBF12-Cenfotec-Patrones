@@ -789,7 +789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 8863090672170645095}
   LoadMapButton: {fileID: 8863090672030472502}
-  QuitButton: {fileID: 0}
+  QuitButton: {fileID: 8863090670259605809}
 --- !u!1 &8863090672030472500
 GameObject:
   m_ObjectHideFlags: 0

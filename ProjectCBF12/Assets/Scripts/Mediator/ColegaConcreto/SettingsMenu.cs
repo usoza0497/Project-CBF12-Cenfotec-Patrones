@@ -34,9 +34,17 @@ public class SettingsMenu : IMenu
         Screen.fullScreen = isFullscreen;
     }
 
-        public void SetVolume(float volumen)
+        public void SetMasterVolume(float volumen)
     {
-        audioMixer.SetFloat("volumen", volumen);
+        audioMixer.SetFloat("MasterVolume", volumen);
+    }
+        public void SetMusicVolume(float volumen)
+    {
+        audioMixer.SetFloat("MusicVolume", volumen);
+    }
+        public void SetEffectsVolume(float volumen)
+    {
+        audioMixer.SetFloat("EffectsVolume", volumen);
     }
     }
 }
