@@ -13,13 +13,9 @@ public class SettingsMenu : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    public TMP_Dropdown resolutionDropdown;
-
     public GameObject SettingsMenuPanel;
 
-    
-    Resolution[] resolutions;
-
+    /*Métodos del Mediador*/
     public void Configure(MenuMediator menuMediator){
             _mediator = menuMediator;
     }
@@ -31,47 +27,19 @@ public class SettingsMenu : MonoBehaviour
     public void Show(){
         SettingsMenuPanel.SetActive(true);
     }
-
     public void PauseMenu(){
         _mediator.GoToPauseMenu();
     }
-    void Start() {
-        resolutions = Screen.resolutions;
 
-        resolutionDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-    
-        for (int i = 0; i < resolutions.Length; i++) {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height) {
-                currentResolutionIndex = i;
-            }
-        }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
-    }
-
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = Screen.resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-
-    public void SetVolume(float volumen)
-    {
-        audioMixer.SetFloat("volumen", volumen);
-    }
-
+    /*Metodos propios del menú settings*/
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+    }
+        public void SetVolume(float volumen)
+    {
+        audioMixer.SetFloat("volumen", volumen);
     }
 
 
