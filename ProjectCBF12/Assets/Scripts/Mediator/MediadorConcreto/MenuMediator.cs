@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.UI.Menus;
+using Assets.Scripts.Mediator;
 using UnityEngine;
 
 namespace Assets.Scripts.Mediator
 { 
-    public class MenuMediator : MonoBehaviour
+    public class MenuMediator : iMediador
     {
         [SerializeField] private PauseMenu _pauseMenu;
         [SerializeField] private SettingsMenu _settingsMenu;
@@ -14,6 +14,7 @@ namespace Assets.Scripts.Mediator
         private void Awake() {
             _pauseMenu.Configure(this);
             _settingsMenu.Configure(this);
+            _settingsMenu.SetFullscreen(false);
             _settingsMenu.Hide();
             _pauseMenu.Hide();
         }
@@ -30,21 +31,21 @@ namespace Assets.Scripts.Mediator
                 }
             }
 
-        public void GoToSettingsMenu() {
+        public override void GoToSettingsMenu() {
             Time.timeScale = 0f;
             isPaused = true;
             _pauseMenu.Hide();
             _settingsMenu.Show();
         }
 
-        public void Resume(){
+        public override void Resume(){
             Time.timeScale = 1f;
             isPaused = false;
             _pauseMenu.Hide();
             _settingsMenu.Hide();
         }
 
-        public void GoToPauseMenu() {
+        public override void GoToPauseMenu() {
             Time.timeScale = 0f;
             isPaused = true;
             _settingsMenu.Hide();

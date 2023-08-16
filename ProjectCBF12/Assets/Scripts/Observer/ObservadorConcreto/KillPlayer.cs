@@ -1,30 +1,38 @@
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.Scripts.Observer
 {
-    public class KillPlayer : MonoBehaviour //Es el Observador del Sujeto TimerLeft
+    public class KillPlayer : Observador //Es el Observador del Sujeto TimerLeft
     {
         private GameObject player;
         public TimerLeft timer { get; private set; }
-        public void Start()
+
+        public override void Actualizar()
         {
-            player = GameObject.FindGameObjectWithTag("Player");
             timer = FindObjectOfType<TimerLeft>();
-            Awake();
+            execute(timer);
         }
-        private void Awake()
+        private void execute(TimerLeft timer)
         {
-            timer = FindObjectOfType<TimerLeft>();
             if (timer != null)
             {
                 timer.TimeOut += PlayerKill;
             }
         }
-
         private void PlayerKill()
         {
             GameManager.instance.GetTotalHealth=0;
         }
+
+        // Start is called before the first frame update
+        public void Start()
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            Actualizar();
+        }
+
+
     }
 }
 

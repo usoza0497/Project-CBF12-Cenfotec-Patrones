@@ -1,14 +1,15 @@
 using UnityEngine;
 using System;
 using TMPro;
+using System.Threading;
 
 namespace Assets.Scripts.Observer
 {
-    public class TimerLeft : MonoBehaviour //Es el Sujeto del Observer KillPlayer
+    public class TimerLeft : Sujeto //Es el Sujeto del Observer KillPlayer
     {
         public event Action TimeOut = delegate { };
 
-        private static float timeTotal = 180;
+        private static float timeTotal = 10;
         private static float timeLeft;
         public static bool TimerOn;
 
@@ -35,7 +36,7 @@ namespace Assets.Scripts.Observer
                 {
                     timeLeft = timeTotal;
                     TimerOn = false;
-                    timeout();
+                    Notify();
                     resetTimer();
                 }
             }
@@ -57,7 +58,7 @@ namespace Assets.Scripts.Observer
             TimerOn = true;
         }
 
-        public void timeout()
+        public override void Notify()
         {
             TimeOut.Invoke();
         }
