@@ -6,31 +6,25 @@ using UnityEngine.SceneManagement;
 using Assets.Scripts.UI.Level_Loading;
 using System;
 using Assets.Scripts.Mediator;
+using UnityEngine.Audio;
 
-namespace Assets.Scripts.UI.Menus
+namespace Assets.Scripts.Mediator
 { 
-    public class PauseMenu : MonoBehaviour
+    public class PauseMenu : IMenu
     {   
-        private MenuMediator _mediator;
         public GameObject PauseMenuPanel;
         public Button LoadMapButton;
         public Button QuitButton;
-
-
-        public void Configure(MenuMediator menuMediator)
-        {
-            _mediator = menuMediator;
-        }
 
         private void Start()
         {
             ToggleButtons();
         }
         
-        public void Hide(){
+        public override void Hide(){
             PauseMenuPanel.SetActive(false);
         }
-        public void Show(){
+        public override void Show(){
             PauseMenuPanel.SetActive(true);
         }
         public void LoadMap() {
