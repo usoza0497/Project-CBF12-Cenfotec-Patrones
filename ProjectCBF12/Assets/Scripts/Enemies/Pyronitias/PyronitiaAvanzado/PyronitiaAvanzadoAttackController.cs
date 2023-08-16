@@ -65,12 +65,10 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
         }
         else if (distanceWithTarget <= detectionRange)
         {
-            Debug.Log("distanceWithTarget = " + distanceWithTarget + "<=" + "detectionRange = " + detectionRange);
             animator.SetTrigger("Run");
         }
         else
         {
-            Debug.Log("IDLE");
             animator.SetTrigger("Idle");
         }
     }
