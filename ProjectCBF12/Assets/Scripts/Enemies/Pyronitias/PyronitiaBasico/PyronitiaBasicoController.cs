@@ -28,7 +28,6 @@ public class PyronitiaBasicoController : MonoBehaviour
         FlipSprite();
         Die();
     }
-
     private void FlipSprite()
     {
         if (!pyronitia.IsAlive()) return;

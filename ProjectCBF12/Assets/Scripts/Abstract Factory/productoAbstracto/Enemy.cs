@@ -101,10 +101,10 @@ public abstract class Enemy : MonoBehaviour
         switch (EnemyName)
         {
             case "PyronitiaPistolero":
-                attackNames = new string[] { "Attack3" };
+                attackNames = new string[] { "Attack1" };
                 break;
             case "PyronitiaVolador":
-                attackNames = new string[] { "Attack3" };
+                attackNames = new string[] { "Attack1" };
                 break;
             default:
                 attackNames = new string[] { "Fireball", "Iceball", "Lightning" };

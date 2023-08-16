@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Xeno_Advanced_Idle
+  m_Name: Xeno_Volador_DieExplosion
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -455478078, guid: 83ce63ae283dcf745ab95ebd7cb50bb7, type: 3}
-    - time: 0.35
-      value: {fileID: -1086517367, guid: 83ce63ae283dcf745ab95ebd7cb50bb7, type: 3}
-    - time: 0.75
-      value: {fileID: -1086517367, guid: 83ce63ae283dcf745ab95ebd7cb50bb7, type: 3}
+      value: {fileID: -1835634470, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
+    - time: 0.05
+      value: {fileID: -46179111, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
+    - time: 0.1
+      value: {fileID: 45903732, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
+    - time: 0.15
+      value: {fileID: -41407608, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -455478078, guid: 83ce63ae283dcf745ab95ebd7cb50bb7, type: 3}
-    - {fileID: -1086517367, guid: 83ce63ae283dcf745ab95ebd7cb50bb7, type: 3}
-    - {fileID: -1086517367, guid: 83ce63ae283dcf745ab95ebd7cb50bb7, type: 3}
+    - {fileID: -1835634470, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
+    - {fileID: -46179111, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
+    - {fileID: 45903732, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
+    - {fileID: -41407608, guid: 8fc7f349f0b5c6741acb86440e062e6e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.76666665
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
