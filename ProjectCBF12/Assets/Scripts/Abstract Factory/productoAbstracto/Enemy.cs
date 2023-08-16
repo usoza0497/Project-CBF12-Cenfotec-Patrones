@@ -77,15 +77,27 @@ public abstract class Enemy : MonoBehaviour
             case "PyronitiaBasico":
                 attackNames = new string[] { "Attack1" };
                 break;
+
             case "PyronitiaAvanzado":
                 attackNames = new string[] { "Attack1", "Attack2" };
                 break;
+
+            case "PyronitiaKamikase":
+                attackNames = new string[] { "Attack1" };
+                break;
+
+            case "PyronitiaVolador":
+                attackNames = new string[] { "Attack1" };
+                break;
+
             case "Minotaur":
                 attackNames = new string[] { "Attack1", "Attack2", "Attack3" };
                 break;
-                case "Ice Monster":
+
+            case "Ice Monster":
                 attackNames = new string[] { "Attack" };
                 break;
+
             default:
                 attackNames = new string[] { "Punch", "Kick", "Headbutt" };
                 break;
@@ -100,16 +112,10 @@ public abstract class Enemy : MonoBehaviour
 
         switch (EnemyName)
         {
-            case "PyronitiaPistolero":
-                attackNames = new string[] { "Attack1" };
-                break;
-            case "PyronitiaVolador":
-                attackNames = new string[] { "Attack1" };
-                break;
-                case "Minotaur":
+            case "Minotaur":
                 attackNames = new string[] { "Stomp" };
                 break;
-                case "Ice Monster":
+            case "Ice Monster":
                 attackNames = new string[] { "Cast" };
                 break;
             default:

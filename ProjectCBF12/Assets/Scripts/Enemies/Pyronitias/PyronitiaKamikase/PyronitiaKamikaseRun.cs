@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-public class PyronitiaAvanzadoRun : StateMachineBehaviour
+public class PyronitiaKamikaseRun : StateMachineBehaviour
 {
-    private PyronitiaAvanzado pyronitiaAvanzado;
+    private PyronitiaKamikase pyronitiaKamikase;
     private Transform player;
     Rigidbody2D myRigidbody;
-    [SerializeField] float speed = 6f;
-    [SerializeField] float meleeRange = 2f;
+    [SerializeField] float speed = 10f;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         myRigidbody = animator.GetComponent<Rigidbody2D>();
-        pyronitiaAvanzado = animator.GetComponent<PyronitiaAvanzado>();
+        pyronitiaKamikase = animator.GetComponent<PyronitiaKamikase>();
+        pyronitiaKamikase.SetName();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -31,11 +27,5 @@ public class PyronitiaAvanzadoRun : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-    }
-
-    private bool IsPlayerInRange()
-    {
-        return Vector2.Distance(player.position, myRigidbody.position) < meleeRange;
     }
 }

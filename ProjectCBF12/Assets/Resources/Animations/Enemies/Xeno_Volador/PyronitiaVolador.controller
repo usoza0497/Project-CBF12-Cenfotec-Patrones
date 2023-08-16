@@ -115,7 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69725c1292b4ea94a96c6367eb3b9614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
+  player: {fileID: 0}
+  pyronitiaVolador: {fileID: 0}
+  myRigidbody: {fileID: 0}
 --- !u!1107 &-2257301041066796823
 AnimatorStateMachine:
   serializedVersion: 6

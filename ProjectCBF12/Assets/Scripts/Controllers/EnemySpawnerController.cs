@@ -77,7 +77,7 @@ public class EnemySpawnerController : MonoBehaviour
                 nombreEnemigo = CrearFabricaEnemigos(fabricaEnemigos);
                 break;
             case 3:
-                fabricaEnemigos = new FabricaPyronitiaPistolero();
+                fabricaEnemigos = new FabricaPyronitiaKamikase();
                 nombreEnemigo = CrearFabricaEnemigos(fabricaEnemigos);
                 break;
             case 4:

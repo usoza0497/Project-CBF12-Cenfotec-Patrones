@@ -22,10 +22,15 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
 
     public float detectionRange = 2f;
 
+    private Enemy enemy; // Reference to the enemy
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<PlayerController>();
+
+        // Get the reference to the enemy
+        enemy = GetComponent<Enemy>();
     }
 
     private void Update()
@@ -34,12 +39,29 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
 
         if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
         {
-            animator.SetTrigger("Attack1");
-            lastAttackTime = Time.time;
-        } else if(distanceWithTarget <= attackRange && Time.time - lastAttackTime2 >= attackCooldown2)
+            // Use the SetMeleeAttacks method to update available attacks
+            enemy.SetMeleeAttacks();
+
+            // Perform melee attack
+            string attackUsed = enemy.MeleeAttack();
+            if (!string.IsNullOrEmpty(attackUsed))
+            {
+                animator.SetTrigger(attackUsed);
+                lastAttackTime = Time.time;
+            }
+        }
+        else if (distanceWithTarget <= attackRange && Time.time - lastAttackTime2 >= attackCooldown2)
         {
-            animator.SetTrigger("Attack2");
-            lastAttackTime2 = Time.time;
+            // Use the SetMeleeAttacks method to update available attacks
+            enemy.SetMeleeAttacks();
+
+            // Perform melee attack
+            string attackUsed = enemy.MeleeAttack();
+            if (!string.IsNullOrEmpty(attackUsed))
+            {
+                animator.SetTrigger(attackUsed);
+                lastAttackTime2 = Time.time;
+            }
         }
         else if (distanceWithTarget <= detectionRange)
         {

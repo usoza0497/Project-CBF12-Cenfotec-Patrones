@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FabricaPyronitiaPistolero : FabricaEnemigos
+public class FabricaPyronitiaKamikase : FabricaEnemigos
 {
     public Enemy crearPyronitia()
     {
-        PyronitiaPistolero pyronitia = new PyronitiaPistolero();
+        PyronitiaKamikase pyronitia = new PyronitiaKamikase();
         return pyronitia;
     }
 }

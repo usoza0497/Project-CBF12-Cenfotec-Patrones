@@ -1,30 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PyronitiaVoladorController : MonoBehaviour
+public class PyronitiaKamikaseController : MonoBehaviour
 {
-    PyronitiaVolador pyronitia;
+    private PyronitiaKamikase pyronitia;
     private Animator myAnimator;
     private Transform player;
     private bool isFlipped = false;
     private bool isDeathTriggered = false;
-    private float speed = 4f;
 
     public Transform attackController;
     public float attackRadio;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         myAnimator = GetComponent<Animator>();
-        pyronitia = GetComponent<PyronitiaVolador>();
+        pyronitia = GetComponent<PyronitiaKamikase>();
         pyronitia.SetName();
-        pyronitia.SetRangeAttacks();
+        pyronitia.SetMeleeAttacks();
     }
 
-    void Update()
+    private void Update()
     {
-        Chase();
         FlipSprite();
         Die();
     }
@@ -73,13 +73,16 @@ public class PyronitiaVoladorController : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                GameManager.instance.LoseHealth();
-                player.GetComponent<PlayerController>().GetHurt();
+                    GameManager.instance.LoseHealth();
+                    player.GetComponent<PlayerController>().GetHurt();
             }
         }
     }
-    private void Chase()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-    }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(attackController.position, attackRadio);
+    //}
+
 }

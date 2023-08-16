@@ -15,15 +15,17 @@ public class PyronitiaVolador : Enemy
         this._EnemyName = "PyronitiaVolador";
     }
 
+    // Override SetRangeAttacks method if necessary
+
     protected override string DoMeleeAttack()
     {
-        return null;
+        string attack = MeleeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length)];
+        this._Log = this._EnemyName + " used " + attack;
+        return attack;
     }
 
     protected override string DoRangeAttack()
     {
-        string attack = RangeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length - 1)];
-        this._Log = this._EnemyName + " used " + attack;
-        return attack;
+        return null;
     }
 }

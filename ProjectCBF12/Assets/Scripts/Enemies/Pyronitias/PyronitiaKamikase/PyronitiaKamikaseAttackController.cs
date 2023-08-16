@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PyronitiaVoladorAttackController : MonoBehaviour
+public class PyronitiaKamikaseAttackController : MonoBehaviour
 {
     public Animator animator;
     public Transform attackPoint1;
@@ -14,6 +14,7 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
     private Transform player;
     private PlayerController playerController;
     public float detectionRange = 2f;
+    private Collider2D myCollider;
 
     private Enemy enemy; // Reference to the enemy
 
@@ -21,6 +22,7 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<PlayerController>();
+        myCollider = GetComponent<Collider2D>();
 
         // Get the reference to the enemy
         enemy = GetComponent<Enemy>();
@@ -45,12 +47,11 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("Fly");
+            animator.SetTrigger("Run");
         }
-
     }
 
-    private void Attack1()
+    public void Attack1()
     {
         PerformAttack(attackPoint1, attackRange);
     }
@@ -62,10 +63,21 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
         foreach (Collider2D item in hitPlayer)
         {
             // Verificar si el jugador sigue en rango
-            if (Vector2.Distance(item.transform.position, attackPoint.position) <= range)
+            for (int i = 0; i < 4; i++)
             {
-                GameManager.instance.LoseHealth();
-                playerController.GetHurt();
+                if (Vector2.Distance(item.transform.position, attackPoint.position) <= range)
+                {
+                    GameManager.instance.LoseHealth();
+                    playerController.GetHurt();
+                }
+            }
+
+            animator.SetTrigger("Death");
+            attackRange = 0;
+
+            if (myCollider != null)
+            {
+                myCollider.enabled = false;
             }
         }
     }

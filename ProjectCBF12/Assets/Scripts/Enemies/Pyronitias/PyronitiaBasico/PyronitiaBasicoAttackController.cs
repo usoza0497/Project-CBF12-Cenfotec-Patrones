@@ -15,10 +15,15 @@ public class PyronitiaBasicoAttackController : MonoBehaviour
     private PlayerController playerController;
     public float detectionRange = 2f;
 
+    private Enemy enemy; // Reference to the enemy
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<PlayerController>();
+
+        // Get the reference to the enemy
+        enemy = GetComponent<Enemy>();
     }
 
     private void Update()
@@ -27,8 +32,16 @@ public class PyronitiaBasicoAttackController : MonoBehaviour
 
         if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
         {
-            animator.SetTrigger("Attack1");
-            lastAttackTime = Time.time;
+            // Use the SetMeleeAttacks method to update available attacks
+            enemy.SetMeleeAttacks();
+
+            // Perform melee attack
+            string attackUsed = enemy.MeleeAttack();
+            if (!string.IsNullOrEmpty(attackUsed))
+            {
+                animator.SetTrigger(attackUsed);
+                lastAttackTime = Time.time;
+            }
         }
         else if (distanceWithTarget <= detectionRange)
         {

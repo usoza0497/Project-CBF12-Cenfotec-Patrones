@@ -3,19 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PyronitiaBasico : Enemy
+public class PyronitiaKamikase : Enemy
 {
-    public PyronitiaBasico()
+    public PyronitiaKamikase()
     {
-        this._EnemyHealth = 50f;
-        this._EnemyName = "PyronitiaBasico";
+        this._EnemyHealth = 100f;
+        this._EnemyName = "PyronitiaKamikase";
     }
     public void SetName()
     {
-        this._EnemyName = "PyronitiaBasico";
+        this._EnemyName = "PyronitiaKamikase";
     }
-
-    // Override SetMeleeAttacks method if necessary
 
     protected override string DoMeleeAttack()
     {
