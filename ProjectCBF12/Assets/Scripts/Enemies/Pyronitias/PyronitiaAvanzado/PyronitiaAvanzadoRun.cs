@@ -20,7 +20,6 @@ public class PyronitiaAvanzadoRun : StateMachineBehaviour
         pyronitiaAvanzado = animator.GetComponent<PyronitiaAvanzado>();
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Vector2 target = new Vector2(player.position.x, myRigidbody.position.y);
@@ -28,7 +27,6 @@ public class PyronitiaAvanzadoRun : StateMachineBehaviour
         myRigidbody.MovePosition(newPos);
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 

@@ -83,7 +83,6 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
 
         foreach (Collider2D item in hitPlayer)
         {
-            // Verificar si el jugador sigue en rango
             if (Vector2.Distance(item.transform.position, attackPoint.position) <= range)
             {
                 GameManager.instance.LoseHealth();

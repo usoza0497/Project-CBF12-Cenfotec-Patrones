@@ -33,14 +33,14 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
 
         if (distanceWithTarget <= detectionRange)
         {
-            // Detener el chase solo si no se estaba persiguiendo anteriormente
+
             if (!isChasing)
             {
                 pyronitiaVoladorController.StopChase();
                 isChasing = true;
             }
 
-            // Realizar el ataque cuerpo a cuerpo
+
             enemy.SetMeleeAttacks();
 
             string attackUsed = enemy.MeleeAttack();
@@ -52,7 +52,6 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
         }
         else if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
         {
-            // Realizar el ataque cuerpo a cuerpo
             enemy.SetMeleeAttacks();
 
             string attackUsed = enemy.MeleeAttack();
@@ -66,7 +65,6 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
         {
             if (isChasing)
             {
-                // Reanudar el chase solo si estaba persiguiendo anteriormente
                 pyronitiaVoladorController.ResumeChase();
                 isChasing = false;
             }
@@ -86,7 +84,6 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
 
         foreach (Collider2D item in hitPlayer)
         {
-            // Verificar si el jugador sigue en rango
             if (Vector2.Distance(item.transform.position, attackPoint.position) <= range)
             {
                 GameManager.instance.LoseHealth();
