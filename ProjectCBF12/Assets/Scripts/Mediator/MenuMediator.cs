@@ -13,6 +13,7 @@ public class MenuMediator : MonoBehaviour
         _pauseMenu.Configure(this);
         _settingsMenu.Configure(this);
         _settingsMenu.Hide();
+        _pauseMenu.Hide();
     }
      void Update()
         {
