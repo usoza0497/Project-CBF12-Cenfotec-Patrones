@@ -63,26 +63,10 @@ public class PyronitiaBasicoController : MonoBehaviour
         }
     }
 
-    public void Attack()
+    private void OnDrawGizmos()
     {
-        if (!pyronitia.IsAlive()) return;
-
-        Collider2D[] objects = Physics2D.OverlapCircleAll(attackController.position, attackRadio);
-
-        foreach (Collider2D collision in objects)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                GameManager.instance.LoseHealth();
-                player.GetComponent<PlayerController>().GetHurt();
-            }
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackController.position, attackRadio);
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(attackController.position, attackRadio);
-    //}
 
 }

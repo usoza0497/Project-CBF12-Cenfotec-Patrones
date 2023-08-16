@@ -16,6 +16,11 @@ public class PyronitiaAvanzado : Enemy
         this._EnemyName = "PyronitiaAvanzado";
     }
 
+    public void SetHealth()
+    {
+        this._EnemyHealth = 250f;
+    }
+
     protected override string DoMeleeAttack()
     {
         string attack = MeleeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length)];

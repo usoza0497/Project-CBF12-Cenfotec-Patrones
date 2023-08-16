@@ -16,15 +16,13 @@ public class PyronitiaKamikaseAttackController : MonoBehaviour
     public float detectionRange = 2f;
     private Collider2D myCollider;
 
-    private Enemy enemy; // Reference to the enemy
+    private Enemy enemy;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<PlayerController>();
         myCollider = GetComponent<Collider2D>();
-
-        // Get the reference to the enemy
         enemy = GetComponent<Enemy>();
     }
 
@@ -34,10 +32,7 @@ public class PyronitiaKamikaseAttackController : MonoBehaviour
 
         if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
         {
-            // Use the SetMeleeAttacks method to update available attacks
             enemy.SetMeleeAttacks();
-
-            // Perform melee attack
             string attackUsed = enemy.MeleeAttack();
             if (!string.IsNullOrEmpty(attackUsed))
             {
@@ -62,7 +57,6 @@ public class PyronitiaKamikaseAttackController : MonoBehaviour
 
         foreach (Collider2D item in hitPlayer)
         {
-            // Verificar si el jugador sigue en rango
             for (int i = 0; i < 4; i++)
             {
                 if (Vector2.Distance(item.transform.position, attackPoint.position) <= range)
