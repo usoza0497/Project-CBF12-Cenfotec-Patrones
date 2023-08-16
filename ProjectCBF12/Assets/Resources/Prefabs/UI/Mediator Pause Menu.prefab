@@ -299,7 +299,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4912707534855357186}
-  - {fileID: 4912707535073087591}
+  - {fileID: 110245592500841136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 4912707534855357187}
-  _settingsMenu: {fileID: 4687163094885173666}
+  _settingsMenu: {fileID: 335233061313164149}
 --- !u!1001 &4552426157863674818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8863090671953207500, guid: e6bbae8e92295a848aa7bca134a00948, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8863090672030472501, guid: e6bbae8e92295a848aa7bca134a00948, type: 3}
       propertyPath: m_RootOrder
@@ -506,13 +506,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8863090672170645144, guid: e6bbae8e92295a848aa7bca134a00948, type: 3}
   m_PrefabInstance: {fileID: 4552426157863674818}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4552426158048932007
+--- !u!1001 &8829216676148529776
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 4552426158165964708}
     m_Modifications:
+    - target: {fileID: 519879535023646672, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 3001223958449029677, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -525,18 +529,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4858755012020483313, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4552426158165964707}
-    - target: {fileID: 4858755012020483313, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToPauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 4858755012020483313, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuMediator, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5984046100372165975, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -544,6 +536,14 @@ PrefabInstance:
     - target: {fileID: 5984046100372165975, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454531883593122747, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetEffectsVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616747042479801685, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
       objectReference: {fileID: 0}
     - target: {fileID: 8863090671953207488, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
       propertyPath: m_Pivot.x
@@ -633,20 +633,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 8863090671953207500, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8863090672170645095, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 9088635102509955333, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 35cf1c59ec015bf45a49eed772c5ee8a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
---- !u!114 &4687163094885173666 stripped
+--- !u!224 &110245592500841136 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8863090671953207488, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
+  m_PrefabInstance: {fileID: 8829216676148529776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &335233061313164149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9088635102509955333, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-  m_PrefabInstance: {fileID: 4552426158048932007}
+  m_PrefabInstance: {fileID: 8829216676148529776}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -654,8 +655,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063c9731dd8280e4bb47e5407225d603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4912707535073087591 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8863090671953207488, guid: 1d400e22cc55b534aa1316edb7f029f7, type: 3}
-  m_PrefabInstance: {fileID: 4552426158048932007}
-  m_PrefabAsset: {fileID: 0}
