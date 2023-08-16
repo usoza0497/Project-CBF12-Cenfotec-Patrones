@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FabricaPyronitiaVolador : FabricaEnemigos
 {
-    // Start is called before the first frame update
     public Enemy crearPyronitia()
     {
         PyronitiaVolador pyronitia = new PyronitiaVolador();

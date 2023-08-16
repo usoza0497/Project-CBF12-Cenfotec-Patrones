@@ -6,36 +6,54 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
 {
     public Animator animator;
     public Transform attackPoint1;
-    public float attackRange = 0.5f;
+    private float attackRange = 0.5f;
     private float lastAttackTime = 0f;
-    public float attackCooldown = 2f;
+    private float attackCooldown = 1f;
 
     public LayerMask playerLayer;
     private Transform player;
     private PlayerController playerController;
-    public float detectionRange = 2f;
+    private float detectionRange = 0.7f;
 
-    private Enemy enemy; // Reference to the enemy
+    private Enemy enemy;
+    public PyronitiaVoladorController pyronitiaVoladorController;
+    private bool isChasing = false;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<PlayerController>();
-
-        // Get the reference to the enemy
         enemy = GetComponent<Enemy>();
+        pyronitiaVoladorController = GetComponent<PyronitiaVoladorController>();
     }
 
     private void Update()
     {
         float distanceWithTarget = Vector2.Distance(player.position, attackPoint1.position);
 
-        if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
+        if (distanceWithTarget <= detectionRange)
         {
-            // Use the SetMeleeAttacks method to update available attacks
+
+            if (!isChasing)
+            {
+                pyronitiaVoladorController.StopChase();
+                isChasing = true;
+            }
+
+
             enemy.SetMeleeAttacks();
 
-            // Perform melee attack
+            string attackUsed = enemy.MeleeAttack();
+            if (!string.IsNullOrEmpty(attackUsed) && Time.time - lastAttackTime >= attackCooldown)
+            {
+                animator.SetTrigger(attackUsed);
+                lastAttackTime = Time.time;
+            }
+        }
+        else if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
+        {
+            enemy.SetMeleeAttacks();
+
             string attackUsed = enemy.MeleeAttack();
             if (!string.IsNullOrEmpty(attackUsed))
             {
@@ -45,9 +63,14 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
         }
         else
         {
+            if (isChasing)
+            {
+                pyronitiaVoladorController.ResumeChase();
+                isChasing = false;
+            }
+
             animator.SetTrigger("Fly");
         }
-
     }
 
     private void Attack1()
@@ -61,7 +84,6 @@ public class PyronitiaVoladorAttackController : MonoBehaviour
 
         foreach (Collider2D item in hitPlayer)
         {
-            // Verificar si el jugador sigue en rango
             if (Vector2.Distance(item.transform.position, attackPoint.position) <= range)
             {
                 GameManager.instance.LoseHealth();
