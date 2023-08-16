@@ -36,7 +36,7 @@ namespace Assets.Scripts.Observer
                 {
                     timeLeft = timeTotal;
                     TimerOn = false;
-                    timeout();
+                    Notify();
                     resetTimer();
                 }
             }
@@ -56,11 +56,6 @@ namespace Assets.Scripts.Observer
         {
             timeLeft = timeTotal;
             TimerOn = true;
-        }
-
-        public void timeout()
-        {
-            Notify();
         }
 
         public override void Notify()
