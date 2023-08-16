@@ -4,43 +4,60 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.UI.Level_Loading;
+using System;
+using Assets.Scripts.Mediator;
 
 namespace Assets.Scripts.UI.Menus
 { 
     public class PauseMenu : MonoBehaviour
-    {
-        public static bool isPaused = false;
+    {   
+        private MenuMediator _mediator;
         public GameObject PauseMenuPanel;
+        public Button LoadMapButton;
+        public Button QuitButton;
 
-        // Update is called once per frame
-        void Update()
+
+        public void Configure(MenuMediator menuMediator)
         {
-            if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(isPaused) {
-                    Resume();
-                } else {
-                    Pause();
-                }
-            }
+            _mediator = menuMediator;
         }
 
-        public void Resume() {
+        private void Start()
+        {
+            ToggleButtons();
+        }
+        
+        public void Hide(){
             PauseMenuPanel.SetActive(false);
-            Time.timeScale = 1f;
-            isPaused = false;
         }
-
-        public void Pause() 
-        {
+        public void Show(){
             PauseMenuPanel.SetActive(true);
-            Time.timeScale = 0f;
-            isPaused = true;
         }
-
         public void LoadMap() {
             GameManager.instance.MementoManager.restoreMemento();
             Time.timeScale = 1f;
+            MenuMediator.isPaused = false;
             LevelLoader.FadeToLevel("Level Map");
+        }
+
+        public void QuitGame() {
+            Application.Quit();
+        }
+
+        private void ToggleButtons()
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            if (sceneName.Contains("Map"))
+            {
+                LoadMapButton.gameObject.SetActive(false);
+                QuitButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                LoadMapButton.gameObject.SetActive(true);
+                QuitButton.gameObject.SetActive(false);
+            }
         }
     }
 }

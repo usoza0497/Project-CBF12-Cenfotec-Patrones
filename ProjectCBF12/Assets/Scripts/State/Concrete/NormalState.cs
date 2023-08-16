@@ -10,7 +10,7 @@ namespace Assets.Scripts.State
         {
             if (PlayerState.PowerPoints >= 50)
             {
-                PlayerState.SetState(new RockState());
+                PlayerState.SetState(new BlueState());
             }
         }
 

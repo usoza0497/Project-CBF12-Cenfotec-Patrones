@@ -8,6 +8,7 @@ TagManager:
   - Hazards
   - Enemy
   - Bullet
+  - Event
   - PyronitiaMeleeAttack1
   - PyronitiaMeleeAttack2
   - PyronitiaMeleeAttack3

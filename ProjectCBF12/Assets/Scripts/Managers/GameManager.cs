@@ -9,6 +9,8 @@ using Assets.Scripts.State;
 public class GameManager : MonoBehaviour
 {
     //Singleton pattern
+    private static GameManager _instance;
+    
     public static GameManager instance { get; private set; }
 
     //Private variables
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playerState = new PlayerState();
     }
 
     void Start()
@@ -83,7 +86,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
     }
 
     public void AddCoinScore(int coinScore)
@@ -145,5 +147,16 @@ public class GameManager : MonoBehaviour
     public void UpdateBossHealthBar(float health)
     {
         hud.UpdateBossHealthBar(health);
+    }
+
+    public void AddPowerPoints(int powerPoints)
+    {
+        PlayerState.AddPowerPoints(powerPoints);
+        hud.UpdatePowerPoints(PlayerState.getPowerPoints());
+    }
+
+    public void VerifyState()
+    {
+        PlayerState.VerifyState(PlayerState);
     }
 }

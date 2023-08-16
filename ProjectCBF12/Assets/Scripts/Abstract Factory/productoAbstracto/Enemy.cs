@@ -55,10 +55,7 @@ public abstract class Enemy : MonoBehaviour
         _EnemyHealth -= damage;
         return !IsAlive();
     }
-    public IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
+  
     public bool IsAlive()
     {
         if (_EnemyHealth <= 0)
@@ -86,6 +83,9 @@ public abstract class Enemy : MonoBehaviour
             case "Minotaur":
                 attackNames = new string[] { "Attack1", "Attack2", "Attack3" };
                 break;
+                case "Ice Monster":
+                attackNames = new string[] { "Attack" };
+                break;
             default:
                 attackNames = new string[] { "Punch", "Kick", "Headbutt" };
                 break;
@@ -105,6 +105,12 @@ public abstract class Enemy : MonoBehaviour
                 break;
             case "PyronitiaVolador":
                 attackNames = new string[] { "Attack1" };
+                break;
+                case "Minotaur":
+                attackNames = new string[] { "Stomp" };
+                break;
+                case "Ice Monster":
+                attackNames = new string[] { "Cast" };
                 break;
             default:
                 attackNames = new string[] { "Fireball", "Iceball", "Lightning" };

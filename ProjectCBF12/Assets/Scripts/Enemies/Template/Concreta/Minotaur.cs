@@ -23,7 +23,7 @@ public class Minotaur : Enemy
 
     protected override string DoRangeAttack()
     {
-        string attack = RangeAttacks[Utilitario.RandomInt(0, MeleeAttacks.Length - 1)];
+        string attack = RangeAttacks[Utilitario.RandomInt(0, RangeAttacks.Length - 1)];
         this._Log = this._EnemyName + " used " + attack;
         return attack;
     }
