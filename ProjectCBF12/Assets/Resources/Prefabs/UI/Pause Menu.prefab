@@ -784,10 +784,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8863090671953207500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30b44a7d155c13f419f358b4f31e8a7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7024d2a5dd2f7b64f81ff6c9f41b6951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 8863090672170645095}
+  LoadMapButton: {fileID: 8863090672030472502}
+  QuitButton: {fileID: 0}
 --- !u!1 &8863090672030472500
 GameObject:
   m_ObjectHideFlags: 0
