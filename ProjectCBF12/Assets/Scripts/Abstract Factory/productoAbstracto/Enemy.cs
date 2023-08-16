@@ -146,7 +146,7 @@ public abstract class Enemy : MonoBehaviour
             this._Log = this._EnemyName + " received damage";
         }
     }
-    //Abstract functions that must be implemented by the concrete classes
+
     protected abstract string DoMeleeAttack();
     protected abstract string DoRangeAttack();
 }

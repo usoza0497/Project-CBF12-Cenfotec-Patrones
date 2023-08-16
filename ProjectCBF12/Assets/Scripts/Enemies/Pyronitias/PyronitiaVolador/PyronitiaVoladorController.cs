@@ -13,6 +13,8 @@ public class PyronitiaVoladorController : MonoBehaviour
 
     public Transform attackController;
     public float attackRadio;
+
+    public PyronitiaVoladorController pyronitiaVoladorController;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -63,23 +65,18 @@ public class PyronitiaVoladorController : MonoBehaviour
         }
     }
 
-    public void Attack()
-    {
-        if (!pyronitia.IsAlive()) return;
-
-        Collider2D[] objects = Physics2D.OverlapCircleAll(attackController.position, attackRadio);
-
-        foreach (Collider2D collision in objects)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                GameManager.instance.LoseHealth();
-                player.GetComponent<PlayerController>().GetHurt();
-            }
-        }
-    }
     private void Chase()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+    }
+
+    public void StopChase()
+    {
+        speed = 0f;
+    }
+
+    public void ResumeChase()
+    {
+        speed = 4f;
     }
 }

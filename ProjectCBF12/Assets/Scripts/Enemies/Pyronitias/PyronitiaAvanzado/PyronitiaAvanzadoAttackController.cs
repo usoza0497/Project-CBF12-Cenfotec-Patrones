@@ -22,14 +22,12 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
 
     public float detectionRange = 2f;
 
-    private Enemy enemy; // Reference to the enemy
+    private Enemy enemy;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerController = player.GetComponent<PlayerController>();
-
-        // Get the reference to the enemy
         enemy = GetComponent<Enemy>();
     }
 
@@ -39,10 +37,8 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
 
         if (distanceWithTarget <= attackRange && Time.time - lastAttackTime >= attackCooldown)
         {
-            // Use the SetMeleeAttacks method to update available attacks
             enemy.SetMeleeAttacks();
 
-            // Perform melee attack
             string attackUsed = enemy.MeleeAttack();
             if (!string.IsNullOrEmpty(attackUsed))
             {
@@ -52,10 +48,8 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
         }
         else if (distanceWithTarget <= attackRange && Time.time - lastAttackTime2 >= attackCooldown2)
         {
-            // Use the SetMeleeAttacks method to update available attacks
             enemy.SetMeleeAttacks();
 
-            // Perform melee attack
             string attackUsed = enemy.MeleeAttack();
             if (!string.IsNullOrEmpty(attackUsed))
             {
