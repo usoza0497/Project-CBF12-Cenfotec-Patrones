@@ -2,15 +2,21 @@ using UnityEngine;
 
 namespace Assets.Scripts.Observer
 {
-    public class KillPlayer : MonoBehaviour //Es el Observador del Sujeto TimerLeft
+    public class KillPlayer : Observador //Es el Observador del Sujeto TimerLeft
     {
         private GameObject player;
         public TimerLeft timer { get; private set; }
+
+        public override void Actualizar()
+        {
+            Awake();
+        }
+
         public void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player");
             timer = FindObjectOfType<TimerLeft>();
-            Awake();
+            Actualizar();
         }
         private void Awake()
         {
