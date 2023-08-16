@@ -14,6 +14,7 @@ namespace Assets.Scripts.Mediator
         private void Awake() {
             _pauseMenu.Configure(this);
             _settingsMenu.Configure(this);
+            _settingsMenu.SetFullscreen(false);
             _settingsMenu.Hide();
             _pauseMenu.Hide();
         }
