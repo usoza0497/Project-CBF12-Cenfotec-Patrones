@@ -9,7 +9,7 @@ namespace Assets.Scripts.Observer
     {
         public event Action TimeOut = delegate { };
 
-        private static float timeTotal = 10;
+        private static float timeTotal = 180;
         private static float timeLeft;
         public static bool TimerOn;
 

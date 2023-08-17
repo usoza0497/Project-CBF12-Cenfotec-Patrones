@@ -308,7 +308,8 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 4842826789296731075}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -430,6 +431,18 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 1040, y: 170, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -7480463677622402911}
+--- !u!114 &4842826789296731075
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acf727aaf10a4249837a83e44d17242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5494878611058105761
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -532,4 +545,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  meleeRange: 2
