@@ -47,6 +47,6 @@ MonoBehaviour:
   pyronitiaBasicoPrefab: {fileID: 1915033163492688092, guid: 722c566ab6f704440a9dee07425bf9bd, type: 3}
   pyronitiaAvanzadoPrefab: {fileID: 9122190882250101910, guid: 2af91173ce1c77b4abc209503c78ff64, type: 3}
   pyronitiaKamikasePrefab: {fileID: 3516154418392638647, guid: 30c6dcbfe569eac468e9ed5a94cbbfb8, type: 3}
-  pyronitiaVoladorPrefab: {fileID: 5453476911856900883, guid: f40f1c38ee04e804089fdf2c4b096b91, type: 3}
+  pyronitiaVoladorPrefab: {fileID: 4891096932455276733, guid: f40f1c38ee04e804089fdf2c4b096b91, type: 3}
   positionsParent: {fileID: 2783039660242354149}
   opcionPyronitia: 0
