@@ -65,6 +65,7 @@ public class PyronitiaAvanzadoAttackController : MonoBehaviour
         {
             animator.SetTrigger("Idle");
         }
+
     }
 
     private void Attack1()
