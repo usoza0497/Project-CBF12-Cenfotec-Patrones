@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3516154417926225637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 1.21, z: 0}
+  m_LocalPosition: {x: 0.05, y: 0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3516154418392638668}
   attackPoint1: {fileID: 3516154417926225638}
-  attackRange: 1.24
+  attackRange: 0.8
   attackCooldown: 2
   playerLayer:
     serializedVersion: 2
