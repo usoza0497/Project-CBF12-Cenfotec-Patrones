@@ -26,4 +26,9 @@ public class PyronitiaBasico : Enemy
     {
         return null;
     }
+
+     private void Update()
+    {
+        Die();
+    }
 }

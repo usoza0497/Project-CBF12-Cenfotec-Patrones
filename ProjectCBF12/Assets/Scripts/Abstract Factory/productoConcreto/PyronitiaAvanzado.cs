@@ -32,4 +32,9 @@ public class PyronitiaAvanzado : Enemy
     {
         return null;
     }
+
+    private void Update()
+    {
+        Die();
+    }
 }

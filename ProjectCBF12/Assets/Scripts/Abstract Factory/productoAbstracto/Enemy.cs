@@ -147,6 +147,14 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public void Die()
+    {
+        if (_EnemyHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     protected abstract string DoMeleeAttack();
     protected abstract string DoRangeAttack();
 }
